@@ -79,7 +79,7 @@ label .button-register,label .button-forgot{
 .bar.bar-profile {
 // /*background-color   : #444;*/
 // /*background-color   : #FFF;*/
-background-color     : #ef473a;
+background-color     : $assertive;
 height               : 170px;
 }
 .profile-picture{
@@ -142,43 +142,59 @@ margin               : 0px;
 
 
 // template image
+
 .cover-image{
  background-repeat: no-repeat;
  width:100%;
  height:200px;
  display:block;
  background-position: center;
+box-shadow:  0 4px 8px 0 rgba(0, 0, 0, 0.2),
+             0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .item-container{
   margin-bottom:10px;
+  width: 100%;
+  display: block;
+
 }
 // content image
 .module {
 overflow              : hidden;
+
 }
 .module > header {
 position              : absolute;
 bottom                : 0;
+// content:" ";
 left                  : 0;
 width                 : 100%;
   // Size gray 
-padding               : 15px 10px;
+padding               : 15px ;
 // background            : inherit;
 background-attachment : fixed;
 overflow              : hidden;
-}
 
-#module > header      ::before {
+}
+// .module > header > h1 {
+//   margin: 0;
+//   color: white;
+//   position: relative;
+//   z-index: 1;
+// }
+
+.module > header::before {
 content               : "";
 position              : absolute;
 top                   : -20px;
-left                  : 0;
+left                  : 0px;
 width                 : 200%;
 height                : 200%;
-// background            : inherit;
+background            : inherit;
 background-attachment : fixed;
--webkit-filter        : blur(4px);
-filter                : blur(4px);
+-webkit-filter        : blur(40px);
+filter                : blur(40px);
+
 }
 .module > header      ::after {
 content               : "";
@@ -187,17 +203,47 @@ top                   : 0;
 left                  : 0;
 width                 : 100%;
 height                : 100%;
-background            : rgba(0, 0, 0, 0.25)
+// background            : rgba(0, 0, 0, 0.2);
+-webkit-filter        : blur(25.15px);
+filter                : blur(25.15px);
+
+
 }
 // COntent Image
 
-.head-content-image{
-font-size             : 30px;
+header .head-content-image{
+font-size             : 20px;
 font-weight           : bold;
+color: white;
+  background-color: black;
+ display: block;
+ padding:13px;
+ // white-space: nowrap;
+text-overflow: ellipsis;
+ overflow: hidden;
+
 }
-.sub-content{
-font-size             : 16px;
+// .sub-content{
+// font-size             : 16px;
+//   color: $balanced;
+//   content               : "";
+// z-index: 1;
+// font-weight           : bold;
+// }
+.sub-content { 
+  display: block;
+  margin: 5px;
+  background-color: black;
+  bottom: 10px;
+  color: white;
+  // font-family: Roboto;
+  font-size: 1.25em;
+  left: 0;
+  // padding: 0.25em 0.75em;
+  position: absolute;
+  word-wrap: break-word;
 }
+
 
 // Content Message
 .news .the-content{
@@ -222,7 +268,7 @@ margin-top:30px;
 }
 .p-subhead{
 	margin-top:30px;
-	font-size:20px;
+	font-size:15px;
 
 }
 .image-head-news{
@@ -231,3 +277,80 @@ margin-top:30px;
 	margin  : auto;
 	display : block;
 }
+
+// ICON IMAGE MENU
+.homeIcon {
+        background-repeat: no-repeat;        
+        background-size: 24px 24px !important;
+        background-position: 50% 50% !important;
+        height: 100%;
+        background-image: url("../svg/house.png");
+        background-size:contain;
+        width: 30px;
+        height: 30px;
+    }
+    .loginIcon {
+        background-repeat: no-repeat;        
+        background-size: 24px 24px !important;
+        background-position: 50% 50% !important;
+        height: 100%;
+        background-image: url("../svg/login.png");
+        background-size:contain;
+        width: 30px;
+        height: 30px;
+    }
+    .emailIcon {
+        background-repeat: no-repeat;        
+        background-size: 24px 24px !important;
+        background-position: 50% 50% !important;
+        height: 100%;
+        background-image: url("../svg/mail.png");
+        background-size:contain;
+        width: 30px;
+        height: 30px;
+    }
+    .settingIcon {
+        background-repeat: no-repeat;        
+        background-size: 24px 24px !important;
+        background-position: 50% 50% !important;
+        height: 100%;
+        background-image: url("../svg/cogwheel-1.png");
+        background-size:contain;
+        width: 30px;
+        height: 30px;
+    }
+    .contactIcon {
+        background-repeat: no-repeat;        
+        background-size: 24px 24px !important;
+        background-position: 50% 50% !important;
+        height: 100%;
+        background-image: url("../svg/male-reporter.png");
+        background-size:contain;
+        width: 30px;
+        height: 30px;
+    }
+  .menuIcon {
+        background-repeat: no-repeat;        
+        background-size: 34px 34px !important;
+        background-position: 50% 50% !important;
+        height: 100%;
+        background-image: url("../svg/signs.png");
+        background-size:contain;
+        width: 35px;
+        height: 35px;
+        border:0px;
+    }
+
+      .searchIcon {
+        background-repeat: no-repeat;        
+        background-size: 34px 34px !important;
+        background-position: 50% 50% !important;
+        height: 100%;
+        background-image: url("../svg/search.png");
+        background-size:contain;
+        width: 35px;
+        height: 35px;
+        border:0px;
+    }
+
+// ITEM BODY
