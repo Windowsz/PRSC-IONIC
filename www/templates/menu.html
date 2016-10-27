@@ -1,13 +1,16 @@
 <ion-side-menus enable-menu-with-back-views="false">
   <ion-side-menu-content>
   <!-- chang color Header  bar-assertive -->
-    <ion-nav-bar class="bar-stable bar-assertive">
+    <ion-nav-bar class="bar-assertive">
       <ion-nav-back-button>
       </ion-nav-back-button>
 
       <ion-nav-buttons side="left">
-        <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
-        </button>
+        <!-- <button class="button button-icon button-clear ion-navicon" menu-toggle="left"> -->
+        
+        <i class="button icon menuIcon" menu-toggle="left"></i>
+        <!-- </button> -->
+
       </ion-nav-buttons>
     </ion-nav-bar>
     <ion-nav-view name="menuContent"></ion-nav-view>
@@ -26,27 +29,35 @@
       <ion-list >
 
         <ion-item menu-close href="#/app/playlists" class="item item-icon-left">
-        <i class="icon ion-home"></i>
+        <!-- <i class="icon" src="./svg/house.png" ></i> -->
+        <!-- <div id="homeIcon1"> <img src="./svg/house.png" class="homeIcon"></div> -->
+        <i class="icon homeIcon"></i>
+
+        <!--  <icon density="mdpi" src="resources/android/icon/drawable-mdpi-icon.png" /> -->
           Home
         </ion-item>
 
         <ion-item menu-close ng-click="login()" class="item item-icon-left">
-        <i class="icon ion-android-unlock"></i>
+        <!-- <i class="icon ion-android-unlock"></i> -->
+        <i class="icon loginIcon"></i>
           Login
         </ion-item>
         <ion-item menu-close href="#/app/messages" class="item item-icon-left">
 
-        <i class="icon ion-email"></i>
+        <!-- <i class="icon ion-email"></i> -->
+        <i class="icon emailIcon"></i>
         Message <span class="badge badge-assertive" ng-repeat="message in messages">{{message.content.length}}</span>
         </ion-item>
         <ion-item menu-close href="#/app/setting" class="item item-icon-left">
-        <i class="icon ion-gear-b"></i>
+        <!-- <i class="icon ion-gear-b"></i> -->
+        <i class="icon settingIcon"></i>
           Setting
         </ion-item>
 
         </ion-item>
         <ion-item menu-close href="#/app/contact" class="item item-icon-left">
-        <i class="icon ion-android-alert"></i>
+        <!-- <i class="icon ion-android-alert"></i> -->
+        <i class="icon contactIcon"></i>
           Contact
         </ion-item>
 

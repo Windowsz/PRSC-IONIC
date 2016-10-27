@@ -103,7 +103,7 @@ $scope.showPopup = function() {
 
 .controller('PlaylistsCtrl', function($scope,  $ionicPopover) {
   $scope.playlists = [
-    { title: 'BOX_1', content: 'content_1', src: './img/test.png',date: 'Thu 3/10/1993 07:26 PM', alt: 'test', id: 1 },
+    { title: 'สํานักหอสมุดกลางเปดขยายเวลาใหบริการชวงกอนสอบ', content: 'สํานักหอสมุดกลางเปดขยายเวลาใหบริการชวงกอนสอบบริเวณพื้นที่นั่งอาน อาคารใหมชั้น 1, โถงวารสารชั้น 1, ชั้นลอยตลอด 24 ชั่วโมง ระหวางวันที่ 12 - 24 กันยายน 2559', src: '../svg/news1.png',date: 'Thu 3/10/1993 07:26 PM', alt: 'test', id: 1 },
     { title: 'BOX_2', content: 'content_2', src: './img/test.png',date: 'Thu 3/10/1993 07:26 PM', alt: 'test', id: 2 },
     { title: 'BOX_3', content: 'content_3', src: './img/test.png',date: 'Thu 3/10/1993 07:26 PM', alt: 'test', id: 3 },
     { title: 'BOX_4', content: 'content_4', src: './img/test.png',date: 'Thu 3/10/1993 07:26 PM', alt: 'test', id: 4 },
@@ -127,8 +127,10 @@ $scope.showPopup = function() {
     { src:'./img/s1.png', alt:'s1', id: 1 },
     { src:'./img/s2.png', alt:'s2', id: 2 },
     { src:'./img/s3.png', alt:'s3', id: 3 },
-    { src:'./img/news1.png', alt:'s3', id: 3 }
+    { src:'../svg/news1.png', alt:'s3', id: 4 }
       ];
+
+
 
        $ionicPopover.fromTemplateUrl('templates/popover.html', {
     scope: $scope,
