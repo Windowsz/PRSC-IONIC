@@ -1,0 +1,151 @@
+/* Empty. Add your own CSS if you like */
+
+.text-upper {
+  text-transform: uppercase; }
+
+.text-light {
+  font-weight: 300; }
+  
+
+img {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+.allbk {
+	background-color: #A9A9A9;
+}
+.ct-h{
+	font-weight: bold;
+}
+#bt-f{
+    background-color: #A9A9A9;
+    
+}
+.ct-h-s #s-h2, #c-h2 #c-h22{
+    background: #FF6347;
+    /*background: #A9A9A9;*/
+    font-weight: bold;
+}
+/*Button setting*/
+#button-s-1, #button-s-2{
+  /*border: 30px;*/
+  /*background: #696969 ;*/
+  border: 3px solid   #696969;
+  margin-bottom: 5px;
+}
+.bar.bar-profile {
+    /*background-color: #444;*/
+    /*background-color: #FFF;*/
+    background-color: #ef473a;
+    height: 170px;
+}
+.profile-picture{
+    height: 100px;
+}
+.bar .profile {
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 0;
+    overflow: hidden;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%;
+    padding-top: 15px;
+    /*background-color: #444;*/
+}
+
+.profile .name {
+    color: #FFFFFF;
+    /*color: #444;*/
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
+}
+
+.profile-picture {
+    border-radius: 50%;
+}
+
+.menu .has-header
+{
+    top: 169px;
+}
+
+ .bk-menu .profile img {
+      border: 0.5em solid rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      position: relative;
+      /*top: -22px;*/ }
+
+/*MEssage*/
+.email-text {
+  font-size: smaller !important;
+  color: grey !important;
+}
+
+/*CSS BACK-GROUND NAV*/
+
+/*ion-side-menu .bar-profile {
+  background: url(https://unsplash.it/1080/720?image=1044);
+  background-size: cover;
+  color: #FFF;
+  position: relative;
+}*/
+/*ion-view{
+  background: url(https://unsplash.it/1080/720?image=1044);
+  background-size: cover;
+  color: #FFF;
+  position: relative;
+}*/
+
+
+
+
+
+
+
+
+
+/*ion-side-menus{
+  position: absolute;
+  top: 0;
+  right: 0; }
+ion-side-menus .profile {
+    background: #2196f3;
+    background: -webkit-linear-gradient(309deg, #d9e1f7, #f1d3ea, #f9f4e5, #acf0ed, #94d3fe, #2196f3);
+    background: -webkit-linear-gradient(141deg, #d9e1f7, #f1d3ea, #f9f4e5, #acf0ed, #94d3fe, #2196f3);
+    background: linear-gradient(309deg, #d9e1f7, #f1d3ea, #f9f4e5, #acf0ed, #94d3fe, #2196f3);
+        background-size: 350% 350%;
+    border: none;
+    color: white;
+    cursor: pointer;
+    margin-top: -4px;
+    padding: 0.2em 1em 0.4em 1em;
+    -webkit-animation: waveColors 8s ease infinite;
+    animation: waveColors 8s ease infinite;
+    -moz-border-radius-topleft: 25px;
+    -moz-border-radius-topright: 25px;
+    -moz-border-radius-bottomright: 25px;
+    -moz-border-radius-bottomleft: 25px;
+    -webkit-border-top-left-radius: 25px;
+    -webkit-border-top-right-radius: 25px;
+    -webkit-border-bottom-right-radius: 25px;
+    -webkit-border-bottom-left-radius: 25px;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    border-bottom-left-radius: 25px; }
+    ion-side-menus select option:disabled {
+      color: #a8d6fa; }
+    .box-translate select option {
+      background: #39a1f4; }
+    .box-translate select:hover {
+      -webkit-animation: none;
+      animation: none; }
+    .box-translate select option:checked {
+      background: #0c7cd5; }*/
+
+
+

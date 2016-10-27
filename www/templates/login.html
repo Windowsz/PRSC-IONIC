@@ -1,0 +1,38 @@
+<ion-modal-view>
+  <ion-header-bar class="bar bar-assertive">
+    <h1 class="title">Login</h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeLogin()">Close</button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+  <h1 style="text-align: center; font-family: 'Impact, Charcoal, sans-serif'
+  font-size:30px; color:#FF6347; font-weight : bold;">
+    <img src="./img/test.png">
+   KMITL
+  </h1>
+    <form ng-submit="doLogin()">
+      <div class="list">
+        <label class="item item-input">
+          <span class="input-label">Username :</span>
+          <input type="text" ng-model="loginData.username">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Password :</span>
+          <input type="password" ng-model="loginData.password">
+        </label>
+        <label class="item">
+          <button class="button button-block button-login icon ion-android-globe" type="submit" href="#">   Log in</button>
+          <button class="button button-block button-register icon ion-android-person-add" type="submit">   Register</button>
+          <button class="button button-block button-forgot icon ion-android-warning" type="submit">   Forgot Password</button>
+        </label>
+        <!-- <label class="item"> -->
+          <!-- <button class="button button-block button-royal" type="submit">FACEBOOK</button> -->
+              <button class="button button-block button-positive icon ion-social-facebook-outline" ng-click="fbLogin()">
+       Login with Facebook
+    </button>
+        <!-- </label> -->
+      </div>
+    </form>
+  </ion-content>
+</ion-modal-view>

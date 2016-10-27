@@ -1,0 +1,233 @@
+/*
+To customize the look and feel of Ionic, you can override the variables
+in ionic's _variables.scss file.
+
+For example, you might change some of the default colors:
+*/
+$light:                           #fff !default;
+$stable:                          #f8f8f8 !default;
+$positive:                        #387ef5 !default;
+$calm:                            #11c1f3 !default;
+$balanced:                        #33cd5f !default;
+$energized:                       #ffc900 !default;
+// $assertive:                       #ef473a !default;
+$royal:                           #886aea !default;
+$dark:                            #444 !default;
+$assertive: 					#FF6347 !default;
+$red:							#DC143C !default;
+
+
+// The path for our ionicons font files, relative to the built CSS in www/css
+$ionicons-font-path: "../lib/ionic/fonts" !default;
+
+// Include all of Ionic
+@import "www/lib/ionic/scss/ionic";
+
+.text-upper {
+text-transform       : uppercase; }
+
+.text-light {
+font-weight          : 300; }
+  
+
+img {
+margin-left          : auto;
+margin-right         : auto;
+display              : block;
+}
+.allbk {
+background-color     : #A9A9A9;
+}
+.ct-h{
+font-weight          : bold;
+}
+#bt-f{
+background-color     : #A9A9A9;
+    
+}
+.ct-h-s #s-h2, #c-h2 #c-h22{
+background           : #FF6347;
+// /*background         : #A9A9A9;*/
+font-weight          : bold;
+}
+/*Button setting*/
+#button-s-1, #button-s-2{
+// /*border             : 30px;*/
+// /*background         : #696969 ;*/
+border               : 3px solid   #696969;
+margin-bottom        : 5px;
+}
+
+
+// Button Logout
+.button-red {
+	background-color :red;
+}
+
+
+// Botton Login
+.button-login{
+	background-color: #32CD32;
+}
+label .button-register,label .button-forgot{
+	background-color: #87CEEB;
+	width:100%;
+	margin: auto;
+}
+
+
+.bar.bar-profile {
+// /*background-color   : #444;*/
+// /*background-color   : #FFF;*/
+background-color     : #ef473a;
+height               : 170px;
+}
+.profile-picture{
+height               : 100px;
+}
+.bar .profile {
+top                  : 0;
+right                : 0;
+left                 : 0;
+z-index              : 0;
+overflow             : hidden;
+text-align           : center;
+text-overflow        : ellipsis;
+white-space          : nowrap;
+width                : 100%;
+padding-top          : 15px;
+/*background-color   : #444;*/
+}
+
+.profile .name {
+color                : #FFFFFF;
+/*color              : #444;*/
+margin-top           : 10px !important;
+margin-bottom        : 10px !important;
+}
+
+.profile-picture {
+border-radius        : 50%;
+}
+
+.menu .has-header
+{
+top                  : 169px;
+}
+
+ .bk-menu .profile img {
+border               : 0.5em solid rgba(255, 255, 255, 0.2);
+border-radius        : 50%;
+position             : relative;
+/*top                : -22px;*/ }
+
+// /*MEssage*/
+// // .email-text {
+// // font-size            : smaller !important;
+// // color                : grey !important;
+// // }
+
+#ul-dropdown{
+width                : 90%;
+margin-top           : 4px;
+}
+#ul-dropdown-new{
+width                : 90%;
+margin-top           : 4px;
+height:110px;
+}
+li .item-toggle{
+margin               : 0px;
+}
+
+
+// template image
+.cover-image{
+ background-repeat: no-repeat;
+ width:100%;
+ height:200px;
+ display:block;
+ background-position: center;
+}
+.item-container{
+  margin-bottom:10px;
+}
+// content image
+.module {
+overflow              : hidden;
+}
+.module > header {
+position              : absolute;
+bottom                : 0;
+left                  : 0;
+width                 : 100%;
+  // Size gray 
+padding               : 15px 10px;
+// background            : inherit;
+background-attachment : fixed;
+overflow              : hidden;
+}
+
+#module > header      ::before {
+content               : "";
+position              : absolute;
+top                   : -20px;
+left                  : 0;
+width                 : 200%;
+height                : 200%;
+// background            : inherit;
+background-attachment : fixed;
+-webkit-filter        : blur(4px);
+filter                : blur(4px);
+}
+.module > header      ::after {
+content               : "";
+position              : absolute;
+top                   : 0;
+left                  : 0;
+width                 : 100%;
+height                : 100%;
+background            : rgba(0, 0, 0, 0.25)
+}
+// COntent Image
+
+.head-content-image{
+font-size             : 30px;
+font-weight           : bold;
+}
+.sub-content{
+font-size             : 16px;
+}
+
+// Content Message
+.news .the-content{
+width                : 90%;
+// margin-left       : 30px;
+// margin-top        : 20px;
+height:500px;
+margin               : 20px 20px 20px 20px;
+// text-align        : center;
+display:block;
+}
+.the-content .h2-message{
+// font-family       : 'THSarabunNew', sans-serif;
+font-size            : 1.55em;
+text-align           : center;
+font-weight          : bold;
+}
+
+.the-content .p-h{
+color                : red;
+margin-top:30px;
+}
+.p-subhead{
+	margin-top:30px;
+	font-size:20px;
+
+}
+.image-head-news{
+		width   : 100%;
+	height  : 250px;
+	margin  : auto;
+	display : block;
+}

@@ -1,0 +1,53 @@
+<ion-view view-title="setting">
+  <ion-content>
+ 
+ <div class="list" >
+  <label class="item item-input item-select">
+    <div class="input-label">
+      เปลี่ยนภาษา
+    </div>
+    <select>
+      <option selected>TH</option>
+      <option>En</option>
+    </select>
+  </label>
+</div>
+<div class="list" ng-repeat="name in names">
+  <div class="item item-divider">
+    ข้อมูลผู้ใช้
+  </div>
+  <a class="item">
+   <span class="ct-h"> Username </span> : {{name.username}}
+  </a>
+  <a class="item">
+   <span class="ct-h"> Name </span> : {{name.first}} {{name.last}} 
+  </a>
+<div class="button-bar">
+<!--   <a class="button button-calm">ReName</a>
+  <a class="button button-balanced">Chang Photo</a> -->
+    <button class="button button-small button-full button-balanced" id="button-s-1" ng-click="showPopup()">ReName</button>
+   <button class="button button-small button-full button-positive" id="button-s-2" ng-click="upload()">Chang Photo</butto>
+</div>
+</div>
+<center>
+<button class="button button-red">
+  log out
+</button>
+</center>
+
+    <div class="list card">
+   <div class="ct-h-s">
+  <div class="item" id="s-h2">
+    <h2>App Version</h2>
+  </div>
+  </div>
+  <div class="item item-body">
+  <ul>
+    <li><span class="ct-h">Version: </span>1.1.1</li>
+</ul>
+  </div>
+</div>
+
+  
+  </ion-content>
+</ion-view>

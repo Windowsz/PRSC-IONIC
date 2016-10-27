@@ -1,0 +1,92 @@
+<ion-view view-title="Message" >
+<ion-nav-buttons side="right">
+
+         <button class="button button-icon icon ion-ios-minus-outline"
+          ng-click="data.showDelete = !data.showDelete"></button>
+
+    </ion-nav-buttons>
+    <ion-content>
+      <ion-list show-delete="data.showDelete">
+        
+        <ion-item ng-repeat="email in messages"
+                  class="item-icon-left item-remove-animate"
+                  href="#/app/messages/{{message.id}}">
+          <i class="icon ion-ios-email-outline" ></i>
+          <h2>KMITL</h2>
+          <p>
+            <span class="email-text">
+              {{email.content}}
+            </span>
+            <span class="item-note email-text">
+              {{email.date | date:'EEE M/d/yyyy h:mm a'}}
+            </span>         
+          </p>
+          
+          <ion-delete-button class="ion-minus-circled" 
+                             ng-click="onItemDelete(email)">
+          </ion-delete-button>          
+        </ion-item>
+      </ion-list>
+    </ion-content>
+    </ion-view>
+  <!-- <ion-content > -->
+
+
+
+    <!-- <div class="list" ng-repeat="message in messages" > -->
+<!-- <ion-list  ng-repeat="message in messages">
+    <a class="item item-avatar item-button-right" href="#/app/messages/{{message.id}}">
+      <img src="{{message.src}}" alt="{{message.alt}}"> -->
+     <!--  <ion-delete-button class="ion-minus-circled" ng-click="onItemDelete(grocery)"></ion-delete-button> -->
+<!--        <button class="button button-assertive icon ion-android-delete" ng-click="onItemDelete(email)"></button>
+      <h2>KMITL LIB</h2> -->
+     <!--  <p>{{message.content}}</p>
+      {{message.id}} -->
+<!--       <p>
+            <span class="email-text" >
+              {{message.content}}
+            </span>
+            <span class="item-note email-text">
+              {{message.date | date:'EEE M/d/yyyy h:mm a'}}
+            </span>         
+          </p>
+    </a> -->
+
+       
+    <!-- </ion-list> -->
+<!-- </div> -->
+  <!-- </ion-content> -->
+<!-- </ion-view> -->
+
+<!--  <ion-header-bar class="bar-positive">
+      <div class="buttons">
+        <button class="button button-icon icon ion-ios-minus-outline"
+          ng-click="data.showDelete = !data.showDelete"></button>
+      </div>
+      <h1 class="title">Ionic Inbox</h1>
+    </ion-header-bar>
+    <ion-content>
+      <ion-list show-delete="data.showDelete">
+        
+        <ion-item ng-repeat="email in messages"
+                  class="item-icon-left item-remove-animate"
+                  href="#/email/{{email.id}}">
+          <i class="icon ion-ios-email-outline"></i>
+          <h2>KMITL</h2>
+          <p>
+            <span class="email-text">
+              {{email.content}}
+            </span>
+            <span class="item-note email-text">
+              {{email.date | date:'EEE M/d/yyyy h:mm a'}}
+            </span>         
+          </p>
+          
+          <ion-delete-button class="ion-minus-circled" 
+                             ng-click="onItemDelete(email)">
+          </ion-delete-button>          
+        </ion-item>
+      </ion-list>
+    </ion-content>
+    </ion-content>
+     -->

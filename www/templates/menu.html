@@ -1,0 +1,60 @@
+<ion-side-menus enable-menu-with-back-views="false">
+  <ion-side-menu-content>
+  <!-- chang color Header  bar-assertive -->
+    <ion-nav-bar class="bar-stable bar-assertive">
+      <ion-nav-back-button>
+      </ion-nav-back-button>
+
+      <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+        </button>
+      </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-nav-view name="menuContent"></ion-nav-view>
+  </ion-side-menu-content>
+<!--  Chang background-color  bar-assertive -->
+  <ion-side-menu side="left" class="bk-menu">
+    <ion-header-bar class="bar-profile">
+    
+      <!-- <h1 class="title">Menu</h1> -->
+      <div class="profile" ng-repeat="name in names">
+        <img class="profile-picture" src="{{name.src}}" />
+        <h3 class="name"><span class="text-upper text-light">{{name.first}} {{name.last}}</span></h3>
+    </div>
+    </ion-header-bar>
+    <ion-content>
+      <ion-list >
+
+        <ion-item menu-close href="#/app/playlists" class="item item-icon-left">
+        <i class="icon ion-home"></i>
+          Home
+        </ion-item>
+
+        <ion-item menu-close ng-click="login()" class="item item-icon-left">
+        <i class="icon ion-android-unlock"></i>
+          Login
+        </ion-item>
+        <ion-item menu-close href="#/app/messages" class="item item-icon-left">
+
+        <i class="icon ion-email"></i>
+        Message <span class="badge badge-assertive" ng-repeat="message in messages">{{message.content.length}}</span>
+        </ion-item>
+        <ion-item menu-close href="#/app/setting" class="item item-icon-left">
+        <i class="icon ion-gear-b"></i>
+          Setting
+        </ion-item>
+
+        </ion-item>
+        <ion-item menu-close href="#/app/contact" class="item item-icon-left">
+        <i class="icon ion-android-alert"></i>
+          Contact
+        </ion-item>
+
+        
+
+
+
+      </ion-list>
+    </ion-content>
+  </ion-side-menu>
+</ion-side-menus>
