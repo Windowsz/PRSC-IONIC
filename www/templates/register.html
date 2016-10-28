@@ -1,0 +1,60 @@
+<ion-view view-title="register">
+<ion-content padding="'true'" scroll="false" class="has-header">
+        <form class="list">
+            <ion-list>
+                <label class="item item-input">
+                    <span class="input-label">Name :</span>
+					
+                    <input type="text" placeholder="ใส่ชื่อประจำตัว" ng-model="data.name">
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">Username :</span>
+                    <input type="email" placeholder="ใส่ Username เพื่อใช้ Login" ng-model="data.username">
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">Password :</span>
+                    <input type="password" placeholder="ใส่รหัสผ่าน" ng-model="data.password">
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">Email :</span>
+                    <input type="password" placeholder="ใส่ Email" ng-model="data.password">
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">Phone :</span>
+                    <input type="number" placeholder="ใส่เบอร์โทรศัพท์" ng-model="data.phone">
+                </label>
+            </ion-list>
+            <label class="item item-input">
+                <span class="input-label">Faculty :</span>
+                <input type="text" placeholder="ใส่คณะที่กำลังศึกษา" ng-model="data.address">
+            </label>
+		  <label class="item item-input item-select">
+		    <div class="input-label">
+		      ชั้นปี
+		    </div>
+		    <select>
+		      <option selected>1</option>
+		      <option>2</option>
+		      <option>3</option>
+		      <option>4</option>
+		      <option>มากกว่า 4 ขึ้นไป</option>
+		    </select>
+		  </label>
+  		  <label class="item item-input item-select">
+		    <div class="input-label">
+		      ประเภท
+		    </div>
+		    <select>
+		      <option selected>นักศึกษา</option>
+		      <option>บุคลากร</option>
+		    </select>
+		  </label>
+            <label class="item item-input">
+                <span class="input-label">รหัสนักศึกษา :</span>
+                <input type="number" placeholder="ใส่รหัสนักศึกษาบุคลากรใส่ -" ng-model="data.pincode">
+            </label>
+			
+            <button ng-click="signup(data)" class="button button-balanced button-block ">Sign up</button>
+        </form>
+    </ion-content>
+</ion-view>
