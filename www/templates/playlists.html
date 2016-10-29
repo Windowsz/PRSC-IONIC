@@ -1,26 +1,11 @@
 <ion-view view-title="KMITL LIB">
 <ion-nav-buttons side="right">
    <div class="buttons searchIcon button" ng-click="popover.show($event)">
-<!--         <button class="button button-icon ion-filing" ng-click="popover.show($event)">
-        </button> -->
       </div>
 </ion-nav-buttons>
 
-  <ion-content scroll="false">
+  <ion-content>
     <ion-list>
-
-
-<!-- <ion-slide-box on-slide-changed="slideHasChanged($index)"  >
-  <ion-slide style="width:300px;height:300px;margin:auto;display:block" >
-    <div class="box blue"><h1>BLUE</h1></div>
-  </ion-slide>
-  <ion-slide>
-    <div class="box yellow"><h1>YELLOW</h1></div>
-  </ion-slide>
-  <ion-slide>
-    <div class="box pink"><h1>PINK</h1></div>
-  </ion-slide>
-</ion-slide-box> -->
 
   <ion-slide-box does-continue="true" auto-play="true" show-pager="true" slide-interval="4000"  auto-play="true" >
     <ion-slide  ng-repeat="image in images" does-continue="true" show-pager="true" >
@@ -29,7 +14,7 @@
       </ion-slide>
   </ion-slide-box>
 
-<!-- CSS class="allbk"  -->
+<!-- TEST IONIC CARD TEMPLATE  -->
 <!--   <ion-item ng-repeat="test in playlists">
       <div class="card">
       <div class="item item-divider" >
@@ -54,11 +39,9 @@
   </a>
   <a href="#/app/content">
   <div class    = "cover-image module" ng-style="{'background-image'           : 'url(' + test.src + ')'}" >
-<!--   <a href="#/app/playlists/{{test.id}}"></a> -->
   <header>
    <p>
   <span class   = "head-content-image" >{{test.title}}</span> <br>
-  <!-- <span class   = "sub-content">{{test.content}}</span> -->
   </p>
   </header>
 
@@ -78,7 +61,6 @@
   <header >
    <p>
   <span class   = "head-content-image">{{test.title}}</span> <br>
-  <!-- <span class   = "sub-content">{{test.content}}</span> -->
   </p>
   </header>
   </div>
@@ -98,7 +80,6 @@
   <header>
    <p>
   <span class   = "head-content-image">{{test.title}}</span> <br>
-  <!-- <span class   = "sub-content">{{test.content}}</span> -->
   </p>
   </header>
   </div>
@@ -107,50 +88,42 @@
     </div>
   </div>
 
-<!-- test fleax box  -->
-<!--  <ion-list scroll="false">
-        <ion-item ng-repeat="test in playlists"
-                  item="brand" >
-                  <ion-scroll direction="x">
-                  <div style='display: inline-block; margin: 10px;' item="app">
-               {{test.title}}
-</div>
-</ion-scroll>
-      </ion-list> -->
-
 <!-- TEST API" -->
-<!--   <ion-item ng-repeat="datas in datat"  >
+<!--   <ion-item ng-repeat="test1234 in datat | limitTo : 3" >
       <div class="card">
-      <div class="item item-divider" >
-            {{datas.data.id}}
+      <div class="item item-divider">
+            {{test1234.created_time}}
 </div>
       <ion-item href="#/app/playlists/{{playlist.id}}">
-        <div class="item item-text-wrap" > -->
-        <!-- <img  src="{{datas.full_picture}}">
+        <div class="item item-text-wrap" >
+        <img  src="{{test1234.full_picture}}">
 </div>
 </ion-item>
       <div class="item item-divider">
-         {{datas.message}}
+         {{test1234.message}}
 </div>
 </ion-item> -->
 
+<!-- TEST API" -->
+<!--   <div class    = "item" >
+  <a href="#/app/new">
+  <button class = "button button-royal">TEST API</button>
+  <div class    = "item item-container" ng-repeat="test in datat" >
+  </a>
+  <a href="#/app/content">
+  <div class    = "cover-image module" ng-style="{'background-image' : 'url(' + test.full_picture + ')'}" >
+  <header>
+   <p>
+  <span class   = "head-content-image" >{{test.message}}</span> <br>
+  </p>
+  </header>
+  </div>
+</a>
+      </div> -->
 
-
-
-
-<!-- <ion-slide-box  >
-<ion-slide class="padding" ng-repeat="playlist in playlists">
-<div class="row" >
-  <div  style="background-image: url('{{playlist.src}}'); width:200px; background-size: cover; background-repeat: no-repeat; height:100px; display:block;">{{playlist.content}}</div>
-</div>
-</ion-slide>
-</ion-slide-box> -->
-
-
-
-
-
-
+      
+    </div>
+  </div>
 </ion-list>
 </ion-content>
 </ion-view>
