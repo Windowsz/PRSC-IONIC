@@ -42,7 +42,6 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     }
   })
 
-
   .state('app.messages', {
       url: '/messages',
       views: {
@@ -72,7 +71,6 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       }
     }
   })
-
 
   .state('app.lib', {
     url: '/lib',
@@ -131,23 +129,8 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     }
   })
 
-  .state('app.register', {
-    url: '/login/register',
-    views: {
-      'menuContent': {
-        templateUrl: 'templates/register.html'
-      }
-    }
-  })
 
-  .state('app.forgotPassword', {
-    url: '/login/reset',
-    views: {
-      'menuContent': {
-        templateUrl: 'templates/forgotPassword.html'
-      }
-    }
-  })
+
 
 
   // .state('app.single', {
@@ -155,6 +138,16 @@ angular.module('starter', ['ionic', 'starter.controllers'])
   //   views: {
   //     'menuContent': {
   //       templateUrl: 'templates/playlist.html'
+  //     }
+  //   }
+  // })
+
+
+  // .state('app.singleImageSlide', {
+  //   url: '/playlists/:imageslideId',
+  //   views: {
+  //     'menuContent': {
+  //       templateUrl: 'templates/imageslide.html'
   //     }
   //   }
   // })

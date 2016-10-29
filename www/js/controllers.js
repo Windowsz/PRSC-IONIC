@@ -30,15 +30,15 @@ angular.module('starter.controllers', [])
   };
 
   // Perform the login action when the user submits the login form
-  // $scope.doLogin = function() {
-  //   console.log('Doing login', $scope.loginData);
+  $scope.doLogin = function() {
+    console.log('Doing login', $scope.loginData);
 
     // Simulate a login delay. Remove this and replace with your login
     // code if using a login system
-  //   $timeout(function() {
-  //     $scope.closeLogin();
-  //   }, 1000);
-  // };
+    $timeout(function() {
+      $scope.closeLogin();
+    }, 1000);
+  };
 
 
   $scope.names = [
@@ -101,7 +101,7 @@ $scope.showPopup = function() {
 )
 
 
-.controller('PlaylistsCtrl', function($scope,  $ionicPopover, $http) {
+.controller('PlaylistsCtrl', function($scope,  $ionicPopover) {
   $scope.playlists = [
     { title: 'สํานักหอสมุดกลางเปดขยายเวลาใหบริการชวงกอนสอบ', content: 'สํานักหอสมุดกลางเปดขยายเวลาใหบริการชวงกอนสอบบริเวณพื้นที่นั่งอาน อาคารใหมชั้น 1, โถงวารสารชั้น 1, ชั้นลอยตลอด 24 ชั่วโมง ระหวางวันที่ 12 - 24 กันยายน 2559', src: '../svg/news1.png',date: 'Thu 3/10/1993 07:26 PM', alt: 'test', id: 1 },
     { title: 'BOX_2', content: 'content_2', src: './img/test.png',date: 'Thu 3/10/1993 07:26 PM', alt: 'test', id: 2 },
@@ -138,17 +138,16 @@ $scope.showPopup = function() {
     $scope.popover = popover;
   });
 
-// TEST FACEBOOK API 
-// var url = "https://graph.facebook.com/v2.8/1164820710277438/feed?fields=message%2Ccreated_time%2Cfull_picture%2Cupdated_time&access_token=EAAE2CnSZBQwcBADOR12SjtdNNIZB9ZBMshENl3oCZAbmOtfO6AODUdGDJ3K5ZB08PV6XrhgRSQzoEKtwm7m7ytzALleLBIpG9PUQtGmkfrrgZAjiJZAI65bJfpeAJS9v79ddLt4wigcmDr4xE3dJw5VoIbXL6qkHn4HsjBdkLtY2AZDZD";
-// $http.get(url).success( function(response) {
-//    $scope.datat =  response.data;
-//    console.log("Review get  Opject: ", response, status);
-// });
+      // var urll = "https://graph.facebook.com/v2.8/1164820710277438/feed?fields=full_picture%2Cmessage_tags%2Cmessage%2Cname%2Ccreated_time&limit=10&access_token=EAAE2CnSZBQwcBAPbQ7AdsZCCE9OkqrTb1evAnCzaZBkYky564a8jjNK2ymTdit8gJ3K0Cm4umBs9AclYaBQqWFqFbXxKjgHUIWbZBHKhcBVP1NIYPTRPiVrl7LaR3gbk0UF9DqewXAyHUZCAsYUmLJon523iKHaSJr9rNUnSyZCAZDZD";
+      // $http.get(urll).success( function(response) {
+      //    $scope.data =  response;
+      // });
+
 
 
 
 //       $scope.datat = [];
-// var wordpressUrl = "https://graph.facebook.com/v2.8/1164820710277438/feed?fields=message%2Ccreated_time%2Cfull_picture%2Cupdated_time&access_token=EAAE2CnSZBQwcBADOR12SjtdNNIZB9ZBMshENl3oCZAbmOtfO6AODUdGDJ3K5ZB08PV6XrhgRSQzoEKtwm7m7ytzALleLBIpG9PUQtGmkfrrgZAjiJZAI65bJfpeAJS9v79ddLt4wigcmDr4xE3dJw5VoIbXL6qkHn4HsjBdkLtY2AZDZD";
+// var wordpressUrl = "https://graph.facebook.com/v2.8/1164820710277438/feed?fields=full_picture%2Cmessage_tags%2Cmessage%2Cname%2Ccreated_time&limit=10&access_token=EAAE2CnSZBQwcBAPbQ7AdsZCCE9OkqrTb1evAnCzaZBkYky564a8jjNK2ymTdit8gJ3K0Cm4umBs9AclYaBQqWFqFbXxKjgHUIWbZBHKhcBVP1NIYPTRPiVrl7LaR3gbk0UF9DqewXAyHUZCAsYUmLJon523iKHaSJr9rNUnSyZCAZDZD";
 
 //   $http.get(wordpressUrl)
 //     .success(function(response){
@@ -156,13 +155,13 @@ $scope.showPopup = function() {
 //       angular.forEach(response, function(child){
 //         $scope.datat.push(child);
 //       });
-//       $scope.datat = response;
+//       // $scope.datat = response;
 //     })
 //     .error(function(response, status){
 //       console.log("Error while received response. " + status + response);
 //     });
 
-
+// }
 
     // $scope.removeItem = function (x) {
     //     $scope.products.splice(x, 1);
