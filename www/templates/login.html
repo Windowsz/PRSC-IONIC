@@ -23,17 +23,22 @@
         </label>
         <label class="item">
           <button class="button button-block button-login icon ion-android-globe" type="submit" href="#">   Log in</button>
-          <a ng-href="#/app/login/register"> 
+<!--           <a ng-href="#/app/login/register"> 
           <button class="button button-block button-register icon ion-android-person-add" type="submit" >  Register</button>
-          </a>
-          <a href="#/app/login/reset" class="button button-block button-forgot icon ion-android-warning">Back to Listings</a>
+          </a> -->
+          <!-- <a href="#/app/login/reset" class="button button-block button-forgot icon ion-android-warning">Back to Listings</a> -->
           <!-- <button class="button button-block button-forgot icon ion-android-warning" type="submit" >   Forgot Password</button> -->
+                  <div class="button-bar social-login">
+            <button class="button button-small button-border icon-left ion-android-person-add "><span style="color: red;">Register</span></button>
+            <button class="button button-small button-border icon-left ion-android-warning"><span style="color: blue;">Forgot Password</span></button>
+        </div>
+                        <button class="button button-block button-positive icon ion-social-facebook" ng-click="fbLogin()">
+       Login with Facebook
+    </button>
         </label>
         <!-- <label class="item"> -->
           <!-- <button class="button button-block button-royal" type="submit">FACEBOOK</button> -->
-              <button class="button button-block button-positive icon ion-social-facebook-outline" ng-click="fbLogin()">
-       Login with Facebook
-    </button>
+
         <!-- </label> -->
       </div>
     </form>
