@@ -139,15 +139,31 @@ $scope.showPopup = function() {
   });
 
 // TEST FACEBOOK API 
-var url = "https://graph.facebook.com/v2.8/1164820710277438/feed?fields=full_picture%2Cmessage%2Cname%2Cupdated_time&access_token=EAAE2CnSZBQwcBABbDmPJvDUoMoHk5K3bVwpXZCMyu2YUZBfzZABdyoYvculBwJsBZCZBwktjklq57ln4I7ue1HbKr6cIeavdJo1jcqkrMHuYZCJAkb7BAhzqMI85X6OwpTaRyMVpfDjNR7Qys2tZBVxrqvUnYakcWgRwffMXWEelJgZDZD";
-$http.get(url).success( function(response) {
-   $scope.datat =  response.data;
+// var url = "https://graph.facebook.com/v2.8/1164820710277438/feed?fields=full_picture%2Cmessage%2Cname%2Cupdated_time&access_token=EAAE2CnSZBQwcBABbDmPJvDUoMoHk5K3bVwpXZCMyu2YUZBfzZABdyoYvculBwJsBZCZBwktjklq57ln4I7ue1HbKr6cIeavdJo1jcqkrMHuYZCJAkb7BAhzqMI85X6OwpTaRyMVpfDjNR7Qys2tZBVxrqvUnYakcWgRwffMXWEelJgZDZD";
+// $http.get(url).success( function(response) {
+//    $scope.datat =  response.data;
+//    console.log("Review get  Opject: ", response, status);
+// });
+
+// TEST NEWS API
+// CNN
+var urlNewsCnn = "https://newsapi.org/v1/articles?source=cnn&sortBy=top&apiKey=69190589d5d54cc78809b9e9acab546c";
+$http.get(urlNewsCnn).success( function(response) {
+   $scope.NewsCnn =  response.articles;
    console.log("Review get  Opject: ", response, status);
 });
-
-
-
-
+// BBC
+var urlNewsBbc = "https://newsapi.org/v1/articles?source=bbc-news&sortBy=top&apiKey=69190589d5d54cc78809b9e9acab546c";
+$http.get(urlNewsBbc).success( function(response) {
+   $scope.NewsBbc =  response.articles;
+   console.log("Review get  Opject: ", response, status);
+});
+// ESPN
+var urlNewsEspn = "https://newsapi.org/v1/articles?source=espn&sortBy=top&apiKey=69190589d5d54cc78809b9e9acab546c";
+$http.get(urlNewsEspn).success( function(response) {
+   $scope.NewsEspn =  response.articles;
+   console.log("Review get  Opject: ", response, status);
+});
 
 
 //       $scope.datat = [];
@@ -233,7 +249,16 @@ $http.get(url).success( function(response) {
 }
 )
 
-.controller('NewsCtrl', function($scope,  $ionicPopover) {
+.controller('NewsCtrl', function($scope,  $ionicPopover, $http) {
+// TEST NEWS API
+// CNN
+var urlNewsCnn = "https://newsapi.org/v1/articles?source=cnn&sortBy=top&apiKey=69190589d5d54cc78809b9e9acab546c";
+$http.get(urlNewsCnn).success( function(response) {
+   $scope.NewsCnn =  response.articles;
+   console.log("Review get  Opject: ", response, status);
+});
+
+
   $scope.new = [
 { title: 'BOX_1', content: 'content_1', src: './img/test.png',date: 'Thu 3/10/1993 07:26 PM', alt: 'test', id: 1 },
     { title: 'BOX_2', content: 'content_2', src: './img/test.png',date: 'Thu 3/10/1993 07:26 PM', alt: 'test', id: 2 },
@@ -260,6 +285,7 @@ $http.get(url).success( function(response) {
   }).then(function(popover) {
     $scope.popover = popover;
   });
+
 
 }
 )
@@ -326,7 +352,23 @@ $http.get(url).success( function(response) {
 }
 )
 
+.controller('NewsCnnCtrl', function($scope,  $ionicPopover, $http) {
+// TEST NEWS API
+// CNN
+var urlNewsCnn = "https://newsapi.org/v1/articles?source=cnn&sortBy=top&apiKey=69190589d5d54cc78809b9e9acab546c";
+$http.get(urlNewsCnn).success( function(response) {
+   $scope.NewsCnn =  response.articles;
+   console.log("Review get  Opject: ", response, status);
+});
 
+   $ionicPopover.fromTemplateUrl('templates/popoverNew.html', {
+    scope: $scope,
+  }).then(function(popover) {
+    $scope.popover = popover;
+  });
 
-.controller('PlaylistCtrl', 'ContactCtrl', 'MessagesCtrl', 'SettingCtrl', 'NewsCtrl', 'LibsCtrl', 'ItsCtrl', function($scope, $stateParams) {
+}
+)
+
+.controller('PlaylistCtrl', 'NewsCnnCtrl', 'ContactCtrl', 'MessagesCtrl', 'SettingCtrl', 'NewsCtrl', 'LibsCtrl', 'ItsCtrl', function($scope, $stateParams) {
 });

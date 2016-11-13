@@ -72,7 +72,16 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       }
     }
   })
-
+// TEST NEWS CONTENT
+  .state('app.detailsCNN', {
+    url: '/detailsCNN/:ID',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/ContentNews/CNN.html',
+         controller: 'NewsCnnCtrl'
+      }
+    }
+  })
 
   .state('app.lib', {
     url: '/lib',

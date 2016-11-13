@@ -9,14 +9,16 @@
     <ion-list>
 <!-- Image Template -->
   <div class    = "item" >
-  <button class = "button button-royal">ข่าวทั่วไป</button>
-  <div class    = "item item-container" ng-repeat="test in new">
-  <a href="#/app/content">
-  <div class    = "cover-image module" ng-style="{'background-image'           : 'url(' + test.src + ')'}" >
+  <button class = "button button-royal">CNN</button>
+  <div class    = "item item-container" ng-repeat="test in NewsCnn">
+  <!-- <a href="#/app/new/{{test.$$hashKey}}"> -->
+  <!-- <a ng-href="test.href">{{test.title}}> -->
+  <a href="#/app/detailsCNN/{{test.$$hashKey}}">
+  <!-- <a ui-sref="CNN({ newID: test.$$hashKey})"> -->
+  <div class    = "cover-image module" ng-style="{'background-image'           : 'url(' + test.urlToImage + ')'}" >
   <header>
    <p>
   <span class   = "head-content-image">{{test.title}}</span> <br>
-  <!-- <span class   = "sub-content">{{test.content}}</span> -->
   </p>
   </header>
   </div>

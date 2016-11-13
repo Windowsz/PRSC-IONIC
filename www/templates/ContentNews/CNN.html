@@ -1,0 +1,21 @@
+<ion-view view-title="CNN">
+  <ion-content class="newsCNN">
+  <div ng-repeat="test in NewsCnn{$$hashKey}">
+  	<div class="head-news" >
+    <!-- ng-repeat="test in NewsCnn{{$$hashKey}}" -->
+  	<img ng-src="{{test.urlToImage}}" class="image-head-news">
+  	</div>
+ <!--   	<div id="the-image-id" class="elastic-image" style="background-image: url('./img/test.png')"></div> -->
+	
+<div class="the-content">
+		<h2 class="h2-message">{{test.title}}</h2><span class="item-note email-text">
+              {{test.title}}<br>
+              <!-- Thu 26/10/2016 07:26 PM -->{{test.publishedAt}}
+            </span>  
+            
+	<!-- 	<p class="p-h">ที่ตั้ง</p> -->
+		<p class="p-subhead">{{test.description}}</p>
+</div>
+</div>
+  </ion-content>
+</ion-view>
