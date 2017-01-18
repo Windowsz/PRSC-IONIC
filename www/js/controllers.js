@@ -74,7 +74,7 @@ $scope.showPopup = function() {
 
   // An elaborate, custom popup
   var myPopup = $ionicPopup.show({
-    // template: '<input type="text" ng-model="data.firstName"> <input type="text" ng-model="data.lastName">', 
+    // template: '<input type="text" ng-model="data.firstName"> <input type="text" ng-model="data.lastName">',
     template: '<span class="input-label">FirstName</span> <input ng-model="newUser.firstName" type="text"<span class="input-label">Last Name</span><input ng-model="newUser.lastName" type="text">',
     title: 'ReName',
     subTitle: 'กรอกชื่อและนามสกุลที่ต้องการเปลี่ยน',
@@ -101,7 +101,57 @@ $scope.showPopup = function() {
 )
 
 
-.controller('PlaylistsCtrl', function($scope,  $ionicPopover, $http) {
+.controller('PlaylistsCtrl', function($scope,  $ionicPopover, $http, $cordovaPush) {
+
+    var androidConfig = {
+      "senderID": "219157519030",
+    };
+
+    document.addEventListener("deviceready", function(){
+      $cordovaPush.register(androidConfig).then(function(result) {
+        // Success
+      }, function(err) {
+        // Error
+      })
+
+      $rootScope.$on('$cordovaPush:notificationReceived', function(event, notification) {
+        switch(notification.event) {
+          case 'registered':
+            if (notification.regid.length > 0 ) {
+              alert('registration ID = ' + notification.regid);
+            }
+            break;
+
+          case 'message':
+            // this is the actual push notification. its format depends on the data model from the push server
+            alert('message = ' + notification.message + ' msgCount = ' + notification.msgcnt);
+            break;
+
+          case 'error':
+            alert('GCM error = ' + notification.msg);
+            break;
+
+          default:
+            alert('An unknown GCM event has occurred');
+            break;
+        }
+      });
+
+
+      // WARNING: dangerous to unregister (results in loss of tokenID)
+      $cordovaPush.unregister(options).then(function(result) {
+        // Success!
+      }, function(err) {
+        // Error
+      })
+
+    }, false);
+
+
+
+
+
+
   $scope.playlists = [
     { title: 'สํานักหอสมุดกลางเปดขยายเวลาใหบริการชวงกอนสอบ', content: 'สํานักหอสมุดกลางเปดขยายเวลาใหบริการชวงกอนสอบบริเวณพื้นที่นั่งอาน อาคารใหมชั้น 1, โถงวารสารชั้น 1, ชั้นลอยตลอด 24 ชั่วโมง ระหวางวันที่ 12 - 24 กันยายน 2559', src: './svg/news1.png',date: 'Thu 3/10/1993 07:26 PM', alt: 'test', id: 1 },
     { title: 'BOX_2', content: 'content_2', src: './img/test.png',date: 'Thu 3/10/1993 07:26 PM', alt: 'test', id: 2 },
@@ -138,7 +188,7 @@ $scope.showPopup = function() {
     $scope.popover = popover;
   });
 
-// TEST FACEBOOK API 
+// TEST FACEBOOK API
 // var url = "https://graph.facebook.com/v2.8/1164820710277438/feed?fields=full_picture%2Cmessage%2Cname%2Cupdated_time&access_token=EAAE2CnSZBQwcBABbDmPJvDUoMoHk5K3bVwpXZCMyu2YUZBfzZABdyoYvculBwJsBZCZBwktjklq57ln4I7ue1HbKr6cIeavdJo1jcqkrMHuYZCJAkb7BAhzqMI85X6OwpTaRyMVpfDjNR7Qys2tZBVxrqvUnYakcWgRwffMXWEelJgZDZD";
 // $http.get(url).success( function(response) {
 //    $scope.datat =  response.data;
@@ -187,7 +237,7 @@ $http.get(urlNewsEspn).success( function(response) {
     //     $scope.products.splice(x, 1);
       // }
 
-    } 
+    }
 )
 
 
@@ -205,7 +255,7 @@ $http.get(urlNewsEspn).success( function(response) {
     {content:'Hello World', src:'./img/test.png', date: 'Thu 3/10/1993 07:26 PM', alt:'test', id: 10 },
     {content:'Hello World', src:'./img/test.png', date: 'Thu 3/10/1993 07:26 PM', alt:'test', id: 11 }
   ];
-  
+
   $scope.data = {
     showDelete: false
   };
@@ -232,7 +282,7 @@ $http.get(urlNewsEspn).success( function(response) {
 
 .controller('ContactCtrl', function($scope) {
   $scope.contact = [
-    { phone: '02-3298544', 
+    { phone: '02-3298544',
     status:'content_1',  }
   ];
 
