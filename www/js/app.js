@@ -6,7 +6,8 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova'])
 
-.run(function($ionicPlatform) {
+// .run(function($ionicPlatform) {
+  .run(function ($rootScope, $ionicPlatform, $cordovaPush) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -19,8 +20,59 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova'])
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
     }
+//                ANDROID
+
+
+ var androidConfig = {
+    "senderID": "662129943428",
+  };
+
+  // document.addEventListener("deviceready", function(){
+    $cordovaPush.register(androidConfig).then(function(result) {
+      // Success
+    }, function(err) {
+      // Error
+    })
+
+    $rootScope.$on('$cordovaPush:notificationReceived', function(event, notification) {
+      switch(notification.event) {
+        case 'registered':
+          if (notification.regid.length > 0 ) {
+            alert('registration ID = ' + notification.regid);
+          }
+          break;
+
+        case 'message':
+          // this is the actual push notification. its format depends on the data model from the push server
+          alert('message = ' + notification.message + ' msgCount = ' + notification.msgcnt);
+          break;
+
+        case 'error':
+          alert('GCM error = ' + notification.msg);
+          break;
+
+        default:
+          alert('An unknown GCM event has occurred');
+          break;
+      }
+    });
+
+
+    // WARNING: dangerous to unregister (results in loss of tokenID)
+    $cordovaPush.unregister(options).then(function(result) {
+      // Success!
+    }, function(err) {
+      // Error
+    });
+
+
+
+
+
+
   });
 })
+
 
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
