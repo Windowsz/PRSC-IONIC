@@ -156,6 +156,7 @@ $scope.showPopup = function() {
 
 
 
+
   $scope.playlists = [
     { title: 'สํานักหอสมุดกลางเปดขยายเวลาใหบริการชวงกอนสอบ', content: 'สํานักหอสมุดกลางเปดขยายเวลาใหบริการชวงกอนสอบบริเวณพื้นที่นั่งอาน อาคารใหมชั้น 1, โถงวารสารชั้น 1, ชั้นลอยตลอด 24 ชั่วโมง ระหวางวันที่ 12 - 24 กันยายน 2559', src: './svg/news1.png',date: 'Thu 3/10/1993 07:26 PM', alt: 'test', id: 1 },
     { title: 'BOX_2', content: 'content_2', src: './img/test.png',date: 'Thu 3/10/1993 07:26 PM', alt: 'test', id: 2 },
@@ -199,12 +200,26 @@ $scope.showPopup = function() {
 //    console.log("Review get  Opject: ", response, status);
 // });
 
+
+//  TEST LOCAL DATABASE API
+//     $scope.NewsCnn = function() {
+//       $http({method: "GET", url: "http://localhost:3000/showJson"})
+//         .success(function(result) {
+//           // alert(result);
+//           console.log("OK");
+//         })
+//         .error(function(error) {
+//           console.log("ERROR: " + error);
+//         });
+//     }
+
 // TEST NEWS API
 // CNN
-var urlNewsCnn = "https://newsapi.org/v1/articles?source=cnn&sortBy=top&apiKey=69190589d5d54cc78809b9e9acab546c";
-$http.get(urlNewsCnn).success( function(response) {
-   $scope.NewsCnn =  response.articles;
-   console.log("Review get  Opject: ", response, status);
+var urlNewsCnn = "http://localhost:3000/showJson";
+$http.get(urlNewsCnn).success( function(data) {
+   $scope.NewsCnn =  data;
+   // console.log("Review get  Opject: ", response, status);
+  console.log("OK");
 });
 // BBC
 var urlNewsBbc = "https://newsapi.org/v1/articles?source=bbc-news&sortBy=top&apiKey=69190589d5d54cc78809b9e9acab546c";
