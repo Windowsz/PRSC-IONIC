@@ -9,14 +9,14 @@
     <ion-content>
       <ion-list show-delete="data.showDelete">
         
-        <ion-item ng-repeat="email in messages"
+        <ion-item ng-repeat="email in ALL"
                   class="item-icon-left item-remove-animate"
                   href="#/app/messages/{{message.id}}">
           <i class="icon ion-ios-email-outline" ></i>
-          <h2>KMITL</h2>
+          <h2>{{email.author}}</h2>
           <p>
             <span class="email-text">
-              {{email.content}}
+              {{email.description}}
             </span>
             <span class="item-note email-text">
               {{email.date | date:'EEE M/d/yyyy h:mm a'}}

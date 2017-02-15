@@ -63,7 +63,16 @@ angular.module('starter.controllers', ['ngCordova'])
   }
 )
 
-.controller('SettingCtrl', function($scope, $ionicPopup, $timeout) {
+.controller('SettingCtrl', function($scope, $ionicPopup, $timeout, $http) {
+
+var urlShowJson = "http://localhost:3000/showJson";
+$http.get(urlShowJson).success( function(data) {
+   $scope.ALL =  data;
+   // console.log("Review get  Opject: ", response, status);
+  console.log(data);
+});
+
+  
     $scope.names = [
   {first: 'Panupong', last: 'Poolngam', src:'./img/img-p.jpg', username: 'Panupong1993'}
   ];
@@ -186,70 +195,20 @@ $scope.showPopup = function() {
       ];
 
 
-
        $ionicPopover.fromTemplateUrl('templates/popover.html', {
     scope: $scope,
   }).then(function(popover) {
     $scope.popover = popover;
   });
 
-// TEST FACEBOOK API
-// var url = "https://graph.facebook.com/v2.8/1164820710277438/feed?fields=full_picture%2Cmessage%2Cname%2Cupdated_time&access_token=EAAE2CnSZBQwcBABbDmPJvDUoMoHk5K3bVwpXZCMyu2YUZBfzZABdyoYvculBwJsBZCZBwktjklq57ln4I7ue1HbKr6cIeavdJo1jcqkrMHuYZCJAkb7BAhzqMI85X6OwpTaRyMVpfDjNR7Qys2tZBVxrqvUnYakcWgRwffMXWEelJgZDZD";
-// $http.get(url).success( function(response) {
-//    $scope.datat =  response.data;
-//    console.log("Review get  Opject: ", response, status);
-// });
-
-
-//  TEST LOCAL DATABASE API
-//     $scope.NewsCnn = function() {
-//       $http({method: "GET", url: "http://localhost:3000/showJson"})
-//         .success(function(result) {
-//           // alert(result);
-//           console.log("OK");
-//         })
-//         .error(function(error) {
-//           console.log("ERROR: " + error);
-//         });
-//     }
-
 // TEST NEWS API
 // CNN
-var urlNewsCnn = "http://localhost:3000/showJson";
-$http.get(urlNewsCnn).success( function(data) {
-   $scope.NewsCnn =  data;
+var urlShowJson = "http://localhost:3000/showJson";
+$http.get(urlShowJson).success( function(data) {
+   $scope.ALL =  data;
    // console.log("Review get  Opject: ", response, status);
-  console.log("OK");
+  console.log(data);
 });
-// BBC
-var urlNewsBbc = "https://newsapi.org/v1/articles?source=bbc-news&sortBy=top&apiKey=69190589d5d54cc78809b9e9acab546c";
-$http.get(urlNewsBbc).success( function(response) {
-   $scope.NewsBbc =  response.articles;
-   console.log("Review get  Opject: ", response, status);
-});
-// ESPN
-var urlNewsEspn = "https://newsapi.org/v1/articles?source=espn&sortBy=top&apiKey=69190589d5d54cc78809b9e9acab546c";
-$http.get(urlNewsEspn).success( function(response) {
-   $scope.NewsEspn =  response.articles;
-   console.log("Review get  Opject: ", response, status);
-});
-
-
-//       $scope.datat = [];
-// var wordpressUrl = "https://graph.facebook.com/v2.8/1164820710277438/feed?fields=message%2Ccreated_time%2Cfull_picture%2Cupdated_time&access_token=EAAE2CnSZBQwcBADOR12SjtdNNIZB9ZBMshENl3oCZAbmOtfO6AODUdGDJ3K5ZB08PV6XrhgRSQzoEKtwm7m7ytzALleLBIpG9PUQtGmkfrrgZAjiJZAI65bJfpeAJS9v79ddLt4wigcmDr4xE3dJw5VoIbXL6qkHn4HsjBdkLtY2AZDZD";
-
-//   $http.get(wordpressUrl)
-//     .success(function(response){
-//       console.log("Reveived getPosts via HTTP: ", response, status);
-//       angular.forEach(response, function(child){
-//         $scope.datat.push(child);
-//       });
-//       $scope.datat = response;
-//     })
-//     .error(function(response, status){
-//       console.log("Error while received response. " + status + response);
-//     });
-
 
 
     // $scope.removeItem = function (x) {
@@ -260,20 +219,15 @@ $http.get(urlNewsEspn).success( function(response) {
 )
 
 
-.controller('MessagesCtrl', function($scope) {
-  $scope.messages = [
-    {content:'Hello World', src:'./img/test.png', date: 'Thu 3/10/1993 07:26 PM', alt:'test', id: 1 },
-    {content:'Hello World', src:'./img/test.png', date: 'Thu 3/10/1993 07:26 PM', alt:'test', id: 2 },
-    {content:'Hello World', src:'./img/test.png', date: 'Thu 3/10/1993 07:26 PM', alt:'test', id: 3 },
-    {content:'Hello World', src:'./img/test.png', date: 'Thu 3/10/1993 07:26 PM', alt:'test', id: 4 },
-    {content:'Hello World', src:'./img/test.png', date: 'Thu 3/10/1993 07:26 PM', alt:'test', id: 5 },
-    {content:'Hello World', src:'./img/test.png', date: 'Thu 3/10/1993 07:26 PM', alt:'test', id: 6 },
-    {content:'Hello World', src:'./img/test.png', date: 'Thu 3/10/1993 07:26 PM', alt:'test', id: 7 },
-    {content:'Hello World', src:'./img/test.png', date: 'Thu 3/10/1993 07:26 PM', alt:'test', id: 8 },
-    {content:'Hello World', src:'./img/test.png', date: 'Thu 3/10/1993 07:26 PM', alt:'test', id: 9 },
-    {content:'Hello World', src:'./img/test.png', date: 'Thu 3/10/1993 07:26 PM', alt:'test', id: 10 },
-    {content:'Hello World', src:'./img/test.png', date: 'Thu 3/10/1993 07:26 PM', alt:'test', id: 11 }
-  ];
+.controller('MessagesCtrl', function($scope, $http) {
+
+var urlShowJson = "http://localhost:3000/showJson";
+$http.get(urlShowJson).success( function(data) {
+   $scope.ALL =  data;
+   // console.log("Review get  Opject: ", response, status);
+  console.log(data);
+});
+
 
   $scope.data = {
     showDelete: false
@@ -293,8 +247,6 @@ $http.get(urlNewsEspn).success( function(response) {
   //       }
   //   });
   // };
-
-
 }
 )
 
@@ -305,15 +257,15 @@ $http.get(urlNewsEspn).success( function(response) {
     status:'content_1',  }
   ];
 
-          var uluru = {lat: 13.7259935, lng: 100.778452};
-        var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 16,
-          center: uluru
-        });
-        var marker = new google.maps.Marker({
-          position: uluru,
-          map: map
-        });
+  var uluru = {lat: 13.7259935, lng: 100.778452};
+  var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 16,
+    center: uluru
+  });
+  var marker = new google.maps.Marker({
+    position: uluru,
+    map: map
+  });
 
 }
 )
@@ -333,20 +285,7 @@ $http.get(urlNewsCnn).success( function(response) {
     { title: 'BOX_2', content: 'content_2', src: './img/test.png',date: 'Thu 3/10/1993 07:26 PM', alt: 'test', id: 2 },
     { title: 'BOX_3', content: 'content_3', src: './img/test.png',date: 'Thu 3/10/1993 07:26 PM', alt: 'test', id: 3 },
     { title: 'BOX_4', content: 'content_4', src: './img/test.png',date: 'Thu 3/10/1993 07:26 PM', alt: 'test', id: 4 },
-    { title: 'BOX_5', content: 'content_5', src: './img/test.png',date: 'Thu 3/10/1993 07:26 PM', alt: 'test', id: 5 },
-    { title: 'BOX_6', content: 'content_6', src: './img/test.png',date: 'Thu 3/10/1993 07:26 PM', alt: 'test', id: 6 },
-    { title: 'BOX_7', content: 'content_7', src: './img/test.png',date: 'Thu 3/10/1993 07:26 PM', alt: 'test', id: 7 },
-    { title: 'BOX_8', content: 'content_8', src: './img/test.png',date: 'Thu 3/10/1993 07:26 PM', alt: 'test', id: 8 },
-    { title: 'BOX_9', content: 'content_9', src: './img/test.png',date: 'Thu 3/10/1993 07:26 PM', alt: 'test', id: 9 },
-    { title: 'BOX_10', content: 'content_10', src: './img/test.png',date: 'Thu 3/10/1993 07:26 PM', alt: 'test', id: 10 },
-    { title: 'BOX_11', content: 'content_11', src: './img/test.png',date: 'Thu 3/10/1993 07:26 PM', alt: 'test', id: 11 },
-    { title: 'BOX_12', content: 'content_12', src: './img/test.png',date: 'Thu 3/10/1993 07:26 PM', alt: 'test', id: 12 },
-    { title: 'BOX_13', content: 'content_13', src: './img/test.png',date: 'Thu 3/10/1993 07:26 PM', alt: 'test', id: 13 },
-    { title: 'BOX_14', content: 'content_14', src: './img/test.png',date: 'Thu 3/10/1993 07:26 PM', alt: 'test', id: 14 },
-    { title: 'BOX_15', content: 'content_15', src: './img/test.png',date: 'Thu 3/10/1993 07:26 PM', alt: 'test', id: 15 },
-    { title: 'BOX_16', content: 'content_16', src: './img/test.png',date: 'Thu 3/10/1993 07:26 PM', alt: 'test', id: 16 },
-    { title: 'BOX_17', content: 'content_17', src: './img/test.png',date: 'Thu 3/10/1993 07:26 PM', alt: 'test', id: 17 },
-    { title: 'BOX_18', content: 'content_18', src: './img/test.png',date: 'Thu 3/10/1993 07:26 PM', alt: 'test', id: 18 }
+    { title: 'BOX_5', content: 'content_5', src: './img/test.png',date: 'Thu 3/10/1993 07:26 PM', alt: 'test', id: 5 }
   ];
 
    $ionicPopover.fromTemplateUrl('templates/popoverNew.html', {
@@ -365,20 +304,7 @@ $http.get(urlNewsCnn).success( function(response) {
     { title: 'BOX_2', content: 'content_2', src: './img/test.png',date: 'Thu 3/10/1993 07:26 PM', alt: 'test', id: 2 },
     { title: 'BOX_3', content: 'content_3', src: './img/test.png',date: 'Thu 3/10/1993 07:26 PM', alt: 'test', id: 3 },
     { title: 'BOX_4', content: 'content_4', src: './img/test.png',date: 'Thu 3/10/1993 07:26 PM', alt: 'test', id: 4 },
-    { title: 'BOX_5', content: 'content_5', src: './img/test.png',date: 'Thu 3/10/1993 07:26 PM', alt: 'test', id: 5 },
-    { title: 'BOX_6', content: 'content_6', src: './img/test.png',date: 'Thu 3/10/1993 07:26 PM', alt: 'test', id: 6 },
-    { title: 'BOX_7', content: 'content_7', src: './img/test.png',date: 'Thu 3/10/1993 07:26 PM', alt: 'test', id: 7 },
-    { title: 'BOX_8', content: 'content_8', src: './img/test.png',date: 'Thu 3/10/1993 07:26 PM', alt: 'test', id: 8 },
-    { title: 'BOX_9', content: 'content_9', src: './img/test.png',date: 'Thu 3/10/1993 07:26 PM', alt: 'test', id: 9 },
-    { title: 'BOX_10', content: 'content_10', src: './img/test.png',date: 'Thu 3/10/1993 07:26 PM', alt: 'test', id: 10 },
-    { title: 'BOX_11', content: 'content_11', src: './img/test.png',date: 'Thu 3/10/1993 07:26 PM', alt: 'test', id: 11 },
-    { title: 'BOX_12', content: 'content_12', src: './img/test.png',date: 'Thu 3/10/1993 07:26 PM', alt: 'test', id: 12 },
-    { title: 'BOX_13', content: 'content_13', src: './img/test.png',date: 'Thu 3/10/1993 07:26 PM', alt: 'test', id: 13 },
-    { title: 'BOX_14', content: 'content_14', src: './img/test.png',date: 'Thu 3/10/1993 07:26 PM', alt: 'test', id: 14 },
-    { title: 'BOX_15', content: 'content_15', src: './img/test.png',date: 'Thu 3/10/1993 07:26 PM', alt: 'test', id: 15 },
-    { title: 'BOX_16', content: 'content_16', src: './img/test.png',date: 'Thu 3/10/1993 07:26 PM', alt: 'test', id: 16 },
-    { title: 'BOX_17', content: 'content_17', src: './img/test.png',date: 'Thu 3/10/1993 07:26 PM', alt: 'test', id: 17 },
-    { title: 'BOX_18', content: 'content_18', src: './img/test.png',date: 'Thu 3/10/1993 07:26 PM', alt: 'test', id: 18 }
+    { title: 'BOX_5', content: 'content_5', src: './img/test.png',date: 'Thu 3/10/1993 07:26 PM', alt: 'test', id: 5 }
   ];
 
    $ionicPopover.fromTemplateUrl('templates/popoverNew.html', {
@@ -396,20 +322,7 @@ $http.get(urlNewsCnn).success( function(response) {
     { title: 'BOX_2', content: 'content_2', src: './img/test.png',date: 'Thu 3/10/1993 07:26 PM', alt: 'test', id: 2 },
     { title: 'BOX_3', content: 'content_3', src: './img/test.png',date: 'Thu 3/10/1993 07:26 PM', alt: 'test', id: 3 },
     { title: 'BOX_4', content: 'content_4', src: './img/test.png',date: 'Thu 3/10/1993 07:26 PM', alt: 'test', id: 4 },
-    { title: 'BOX_5', content: 'content_5', src: './img/test.png',date: 'Thu 3/10/1993 07:26 PM', alt: 'test', id: 5 },
-    { title: 'BOX_6', content: 'content_6', src: './img/test.png',date: 'Thu 3/10/1993 07:26 PM', alt: 'test', id: 6 },
-    { title: 'BOX_7', content: 'content_7', src: './img/test.png',date: 'Thu 3/10/1993 07:26 PM', alt: 'test', id: 7 },
-    { title: 'BOX_8', content: 'content_8', src: './img/test.png',date: 'Thu 3/10/1993 07:26 PM', alt: 'test', id: 8 },
-    { title: 'BOX_9', content: 'content_9', src: './img/test.png',date: 'Thu 3/10/1993 07:26 PM', alt: 'test', id: 9 },
-    { title: 'BOX_10', content: 'content_10', src: './img/test.png',date: 'Thu 3/10/1993 07:26 PM', alt: 'test', id: 10 },
-    { title: 'BOX_11', content: 'content_11', src: './img/test.png',date: 'Thu 3/10/1993 07:26 PM', alt: 'test', id: 11 },
-    { title: 'BOX_12', content: 'content_12', src: './img/test.png',date: 'Thu 3/10/1993 07:26 PM', alt: 'test', id: 12 },
-    { title: 'BOX_13', content: 'content_13', src: './img/test.png',date: 'Thu 3/10/1993 07:26 PM', alt: 'test', id: 13 },
-    { title: 'BOX_14', content: 'content_14', src: './img/test.png',date: 'Thu 3/10/1993 07:26 PM', alt: 'test', id: 14 },
-    { title: 'BOX_15', content: 'content_15', src: './img/test.png',date: 'Thu 3/10/1993 07:26 PM', alt: 'test', id: 15 },
-    { title: 'BOX_16', content: 'content_16', src: './img/test.png',date: 'Thu 3/10/1993 07:26 PM', alt: 'test', id: 16 },
-    { title: 'BOX_17', content: 'content_17', src: './img/test.png',date: 'Thu 3/10/1993 07:26 PM', alt: 'test', id: 17 },
-    { title: 'BOX_18', content: 'content_18', src: './img/test.png',date: 'Thu 3/10/1993 07:26 PM', alt: 'test', id: 18 }
+    { title: 'BOX_5', content: 'content_5', src: './img/test.png',date: 'Thu 3/10/1993 07:26 PM', alt: 'test', id: 5 }
   ];
 
    $ionicPopover.fromTemplateUrl('templates/popoverNew.html', {

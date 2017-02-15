@@ -21,19 +21,15 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova'])
       StatusBar.styleDefault();
     }
 //                ANDROID
-
-
  var androidConfig = {
     "senderID": "662129943428",
   };
-
   // document.addEventListener("deviceready", function(){
     $cordovaPush.register(androidConfig).then(function(result) {
       // Success
     }, function(err) {
       // Error
     })
-
     $rootScope.$on('$cordovaPush:notificationReceived', function(event, notification) {
       switch(notification.event) {
         case 'registered':
@@ -41,7 +37,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova'])
             alert('registration ID = ' + notification.regid);
           }
           break;
-
         case 'message':
           // this is the actual push notification. its format depends on the data model from the push server
           alert('message = ' + notification.message + ' msgCount = ' + notification.msgcnt);
@@ -57,18 +52,12 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova'])
       }
     });
 
-
     // WARNING: dangerous to unregister (results in loss of tokenID)
     $cordovaPush.unregister(options).then(function(result) {
       // Success!
     }, function(err) {
       // Error
     });
-
-
-
-
-
 
   });
 })
