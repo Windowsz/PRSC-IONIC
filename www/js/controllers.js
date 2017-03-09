@@ -1,6 +1,6 @@
-angular.module('starter.controllers', ['ngCordova'])
+angular.module('starter.controllers', ['ngCordova', 'ngCordovaOauth'])
 
-.controller('AppCtrl', function($scope, $ionicModal, $timeout, $ionicSlideBoxDelegate) {
+.controller('AppCtrl', function($scope, $ionicModal, $timeout, $ionicSlideBoxDelegate, $cordovaOauth, $http) {
 
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
@@ -18,6 +18,14 @@ angular.module('starter.controllers', ['ngCordova'])
   }).then(function(modal) {
     $scope.modal = modal;
   });
+$scope.googleLogin = function() {
+        $cordovaOauth.google("app-id", ["email", "profile"]).then(function(result) {
+
+        }, function(error) {
+
+        });
+    }
+
 
   // Triggered in the login modal to close it
   $scope.closeLogin = function() {
@@ -160,7 +168,13 @@ $scope.showPopup = function() {
     //
     // }, false);
 
-
+$scope.User = [{
+userId: '1',
+userType : '1',
+faculty: '1',
+year: '2016'
+}
+];
 
 
 
@@ -210,7 +224,12 @@ $http.get(urlShowJson).success( function(data) {
   console.log(data);
 });
 
-
+// var urlShowJson = 'http://localhost:27017/my_db/users';
+// $http.get(urlShowJson).success( function(data) {
+//    $scope.ALL =  data;
+//    // console.log("Review get  Opject: ", response, status);
+//   console.log(data);
+// });
     // $scope.removeItem = function (x) {
     //     $scope.products.splice(x, 1);
       // }
@@ -228,7 +247,13 @@ $http.get(urlShowJson).success( function(data) {
   console.log(data);
 });
 
-
+$scope.User = [{
+userId: '1',
+userType : '1',
+faculty: '1',
+year: '2016'
+}
+];
   $scope.data = {
     showDelete: false
   };

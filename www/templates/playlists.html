@@ -1,21 +1,26 @@
 <!--SCROLL-->
-<ion-view view-title="KMITL LIB" onscroll="on">
+<ion-view view-title="KMITL LIB" onscroll="on" >
 <ion-nav-buttons side="right">
 <div class="buttons searchIcon button" ng-click="popover.show($event)"></div>
 </ion-nav-buttons>
-<ion-content scroll="true">
+<ion-content scroll="true" ng-repeat="testUser in User ">
 <ion-list>
   <ion-slide-box does-continue="true" auto-play="true" show-pager="true" slide-interval="4000"  auto-play="true" >
-    <ion-slide  ng-repeat="test in ALL" does-continue="true" show-pager="true" >
+    <ion-slide  ng-repeat="test in ALL | limitTo : 5 " does-continue="true" show-pager="true" >
      <a href="#/app/content">  <img ng-src="{{test.image}}" alt="{{test.image}}"
      style="width:100%;height:200px;margin:auto;display:block;" ></a>
 </ion-slide>
 </ion-slide-box>
 <!-- TEST NEWS -->
+
+
+
+
+
   <div class    = "item" >
   <a href="#/app/new">
   <button class = "button button-royal">ข่าวทั่วไป</button>
-  <div class    = "item item-container" ng-repeat="test in ALL | limitTo : 3" >
+  <div class    = "item item-container" ng-repeat="test in ALL | limitTo : 3 | orderBy:'-date'" >
   </a>
   <a href="#/app/content">
   <div class    = "cover-image module" ng-style="{'background-image': 'url(' + test.image + ')'}" >
@@ -32,10 +37,14 @@
   </div>
   </div>
 
+
+
+
+
   <div class    = "item">
   <a href="#/app/lib" >
-  <button class = "button button-calm">ข่าวสำนักหอสมุดกลาง</button>
-  <div class    = "item item-container" ng-repeat="test in ALL | limitTo : 3  | filter:{group_id: 1}" >
+  <button class = "button button-calm">ข่าวสำนักหอสมุดกลาง {{testUser.userType}}</button>
+  <div class    = "item item-container" ng-repeat="test in ALL | limitTo : 3  | filter:{'group_id': '1'}" >
   </a>
     <a href="#/app/content">
   <div class    = "cover-image module" ng-style="{'background-image': 'url(' + test.image + ')'}" >
@@ -54,7 +63,7 @@
   <div class    = "item" >
    <a href="#/app/it">
   <button class = "button button-energized">ข่าวสารงานไอที</button>
-  <div class    = "item item-container" ng-repeat="test in ALL | limitTo : 3 | filter:{group_id: 2} ">
+  <div class    = "item item-container" ng-repeat="test in ALL | limitTo : 3 | filter:{'group_id': '2'}">
   </a>
     <a href="#/app/content">
   <div class    = "cover-image module" ng-style="{'background-image': 'url(' + test.image + ')'}" >
@@ -70,7 +79,24 @@
   </div>
   </div>
 
-
+<div class    = "item" >
+   <a href="#/app/it">
+  <button class = "button button-energized">ข่าวสารที่เกี่ยวข้อง</button>
+  <div class    = "item item-container" ng-repeat="test in ALL | limitTo : 3 | filter:{'userType': testUser.userType , 'faculty': testUser.faculty, 'year': testUser.year}">
+  </a>
+    <a href="#/app/content">
+  <div class    = "cover-image module" ng-style="{'background-image': 'url(' + test.image + ')'}" >
+  <header>
+   <p>
+  <span class   = "head-content-image">{{test.title}}</span> <br>
+  <!-- <span class   = "sub-content">{{test.content}}</span> -->
+  </p>
+  </header>
+  </div>
+  </a>
+  </div>
+  </div>
+  </div>
 </ion-list>
 </ion-content>
 </ion-view>

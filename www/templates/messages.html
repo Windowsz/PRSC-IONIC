@@ -6,10 +6,10 @@
           ng-click="data.showDelete = !data.showDelete"></button> -->
 
     </ion-nav-buttons>
-    <ion-content>
+    <ion-content ng-repeat="user in User">
       <ion-list show-delete="data.showDelete">
         
-        <ion-item ng-repeat="email in ALL"
+        <ion-item ng-repeat="email in ALL| filter:{'year': user.year}"
                   class="item-icon-left item-remove-animate"
                   href="#/app/messages/{{message.id}}">
           <i class="icon ion-ios-email-outline" ></i>

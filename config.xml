@@ -1,6 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.ionicframework.test554537" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-<<<<<<< HEAD
     <name>LIB_KMITL</name>
     <description>
         An Ionic Framework and Cordova project.
@@ -53,8 +52,7 @@
         <variable name="SENDER_ID" value="662129943428" />
     </plugin>
 </widget>
-=======
-  <name>LIB_KMITL</name>
+  <!-- <name>LIB_KMITL</name>
   <description>&#xD;&#xD;
         An Ionic Framework and Cordova project.&#xD;&#xD;
     </description>
@@ -134,4 +132,4 @@
   </platform>
   <icon src="resources\android\icon\drawable-xhdpi-icon.png"/>
 </widget>
->>>>>>> origin/master
+ -->
