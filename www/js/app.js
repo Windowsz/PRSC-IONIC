@@ -20,7 +20,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova', 'ngCordo
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
     }
-//                ANDROID
+    /////////////////////////Delete $cordovaPush///////////////////////////
+//  ANDROID
  var androidConfig = {
     "senderID": "662129943428",
   };
@@ -34,7 +35,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova', 'ngCordo
       switch(notification.event) {
         case 'registered':
           if (notification.regid.length > 0 ) {
-            alert('registration ID = ' + notification.regid);
+            alert('registration ID = ' + notification.regid + 'message = ' + notification.message + ' msgCount = ' + notification.msgcnt);
           }
           break;
         case 'message':
@@ -58,7 +59,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova', 'ngCordo
     }, function(err) {
       // Error
     });
-
+////////////////////////////////////////////////////
   });
 })
 

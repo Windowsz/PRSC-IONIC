@@ -9,7 +9,7 @@
     <ion-content ng-repeat="user in User">
       <ion-list show-delete="data.showDelete">
         
-        <ion-item ng-repeat="email in ALL| filter:{'year': user.year}"
+        <ion-item ng-repeat="email in ALL| filter:{'faculty': user.faculty}"
                   class="item-icon-left item-remove-animate"
                   href="#/app/messages/{{message.id}}">
           <i class="icon ion-ios-email-outline" ></i>
