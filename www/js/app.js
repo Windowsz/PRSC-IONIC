@@ -8,6 +8,9 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova', 'ngCordo
 
 // .run(function($ionicPlatform) {
   .run(function ($rootScope, $ionicPlatform, $cordovaPush) {
+
+// $rootScope.extras = false;
+
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -76,6 +79,16 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova', 'ngCordo
     abstract: true,
     templateUrl: 'templates/menu.html',
     controller: 'AppCtrl'
+  })
+
+     .state('app.login', {
+    url: '/login',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/login.html',
+        controller: 'AppCtrl'
+      }
+    }
   })
 
   .state('app.setting', {
@@ -205,14 +218,15 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova', 'ngCordo
     }
   })
 
- .state('app.login', {
-    url: '/login',
-    views: {
-      'menuContent': {
-        templateUrl: 'templates/login.html'
-      }
-    }
-  })
+ // .state('app.login', {
+ //    url: '/login',
+ //    views: {
+ //      'menuContent': {
+ //        templateUrl: 'templates/login.html',
+ //        controller: 'LoginCtrl'
+ //      }
+ //    }
+ //  })
   // .state('app.single', {
   //   url: '/playlists/:playlistId',
   //   views: {
@@ -223,5 +237,5 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova', 'ngCordo
   // })
    ;
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/playlists');
+  $urlRouterProvider.otherwise('/app/login');
 });
