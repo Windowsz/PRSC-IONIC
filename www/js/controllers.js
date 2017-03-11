@@ -329,5 +329,100 @@ $http.get(urlNewsCnn).success( function(response) {
 }
 )
 
-.controller('PlaylistCtrl', 'NewsCnnCtrl', 'ContactCtrl', 'MessagesCtrl', 'SettingCtrl', 'NewsCtrl', 'LibsCtrl', 'ItsCtrl', function($scope, $stateParams) {
+.controller('RegisterCtrl', function($scope, $http) {
+
+// $scope.ionicUsers = {
+//       username : '',
+//       password : '',
+//       firstname : '',
+//       lastname : '',
+//       faculty : '',
+//       year : '',
+//       userType : ''
+//    };              
+
+
+$scope.addUsers = function(){
+var urlNewsCnn = "http://localhost:3000/postUsers";
+$http.post(urlNewsCnn,{
+    'username':$scope.username, 'password':$scope.password,
+    'firstname':$scope.firstname, 'lastname':$scope.lastname,
+    'faculty':$scope.faculty, 'year':$scope.year,
+    'userType':$scope.userType
+
+}).success( function(response) {
+  console.log('OK');
+  
+   // $scope.NewsCnn =  response.articles;
+   // console.log("Review get  Opject: ", response, status);
+});
+
+};
+
+// $scope.addUsers = function(){
+//   $http.post('http://localhost:3000/postUsers', 
+//   {
+//     // 'username':$scope.username, 'password':$scope.password,
+//     // 'firstname':$scope.firstname, 'lastname':$scope.lastname,
+//     // 'faculty':$scope.faculty, 'year':$scope.year,
+//     // 'userType':$scope.userType
+//   }).success(function(data)){
+//     console.log(data);
+//   }
+// };
+
+
+// function resetItem(){
+//    $scope.ionicUsers = {
+//       username : '',
+//       password : '',
+//       firstname : '',
+//       lastname : '',
+//       faculty : '',
+//       year : '',
+//       userType : ''
+//    };              
+//    $scope.displayForm = '';
+   
+// }
+// resetItem();
+ 
+//  $scope.addItem = function () {
+//    resetItem();
+//    $scope.displayForm = true;
+//  }
+ 
+ 
+// $scope.saveItem = function () {
+//   var iousers = $scope.ionicUsers;
+//       if (iousers.id.length == 0){
+//             $http.get('http://localhost:3000/postUsers?username=' + iousers.username + '&password=' +  iousers.password  + '&firstname=' +  iousers.firstname
+//               + '&lastname=' +  iousers.lastname  + '&faculty=' +  iousers.faculty  + '&year=' +  iousers.year  + '&userType=' +  iousers.userType).success(function(data) {
+//               $scope.items.push(data);
+//               $scope.displayForm = '';
+//               removeModal();
+//             }).
+//   error(function(data, status, headers, config) {
+//     alert(data.summary);
+//   });
+//           }
+//           else{
+//             $http.get('/employee/update/'+ iousers.id +'?username=' + iousers.username + '&password=' +  iousers.password + '&firstname=' +  iousers.firstname
+//                + '&lastname=' +  iousers.lastname  + '&faculty=' +  iousers.faculty  + '&year=' +  iousers.year  + '&userType=' +  iousers.userType).success(function(data) {
+//               $scope.displayForm = '';
+//               removeModal();
+//             }).
+//   error(function(data, status, headers, config) {
+//     alert(data.summary);
+//   });
+//           }
+//         };
+
+
+}
+)
+
+
+
+.controller('PlaylistCtrl', 'RegisterCtrl', 'NewsCnnCtrl', 'ContactCtrl', 'MessagesCtrl', 'SettingCtrl', 'NewsCtrl', 'LibsCtrl', 'ItsCtrl', function($scope, $stateParams) {
 });

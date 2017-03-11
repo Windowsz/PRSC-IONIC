@@ -190,7 +190,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova', 'ngCordo
     url: '/login/register',
     views: {
       'menuContent': {
-        templateUrl: 'templates/register.html'
+        templateUrl: 'templates/register.html',
+        controller: 'RegisterCtrl'
       }
     }
   })
@@ -204,7 +205,14 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova', 'ngCordo
     }
   })
 
-
+ .state('app.login', {
+    url: '/login',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/login.html'
+      }
+    }
+  })
   // .state('app.single', {
   //   url: '/playlists/:playlistId',
   //   views: {

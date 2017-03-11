@@ -1,9 +1,9 @@
 <ion-modal-view>
   <ion-header-bar class="bar bar-assertive">
     <h1 class="title">Login</h1>
-    <div class="buttons">
+<!--     <div class="buttons">
       <button class="button button-clear" ng-click="closeLogin()">Close</button>
-    </div>
+    </div> -->
   </ion-header-bar>
   <ion-content>
   <h1 style="text-align: center; font-family: 'Impact, Charcoal, sans-serif'
@@ -28,11 +28,7 @@
           </a> -->
           <!-- <a href="#/app/login/reset" class="button button-block button-forgot icon ion-android-warning">Back to Listings</a> -->
           <!-- <button class="button button-block button-forgot icon ion-android-warning" type="submit" >   Forgot Password</button> -->
-                  <div class="button-bar social-login">
-            <button class="button button-small button-border icon-left ion-android-person-add "><span style="color: red;">Register</span></button>
-            <button class="button button-small button-border icon-left ion-android-warning"><span style="color: blue;">Forgot Password</span></button>
-        </div>
-                        <button class="button button-block button-positive icon ion-social-facebook" ng-click="fbLogin()">
+      <button class="button button-block button-positive icon ion-social-facebook" ng-click="fbLogin()">
        Login with Facebook
     </button>
     <a href="" ng-click="googleLogin()"><button>Login With Google</button></a>
@@ -43,5 +39,10 @@
         <!-- </label> -->
       </div>
     </form>
+                      <div class="button-bar social-login">
+            <button class="button button-small button-border icon-left ion-android-person-add" ui-sref="app.register"><span style="color: red;">Register</span>
+            </button>
+            <button class="button button-small button-border icon-left ion-android-warning"><span style="color: blue;">Forgot Password</span></button>
+        </div>
   </ion-content>
 </ion-modal-view>
