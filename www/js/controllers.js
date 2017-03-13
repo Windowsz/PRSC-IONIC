@@ -1,6 +1,6 @@
 angular.module('starter.controllers', ['ngCordova', 'ngCordovaOauth'])
 
-.controller('AppCtrl', function($scope, $ionicModal, $timeout, $state, $ionicPopup, $ionicSlideBoxDelegate, $http) {
+.controller('AppCtrl', function($scope, $ionicModal, $timeout, $state, $ionicPopup, $ionicSlideBoxDelegate, $ionicHistory, $http) {
 
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
@@ -109,29 +109,37 @@ $scope.doLogin = function() {
 //     $scope.showAlertFail();
 //     }
 //   };
+  $ionicHistory.nextViewOptions({
+    disableBack: true
+  });
 
 
 
 
 
-
-    var test = "http://localhost:3000/g/"+$scope.loginData.username;
+    var test = "http://localhost:3000/g/" + $scope.loginData.username;
 $http.get(test).then( function(response) {
-  // console.log('OK');
-  var myJSON = JSON.stringify(response.data);
- // $scope.getUsername =  myJSON;
- var u = myJSON['username'];
- var p = myJSON['password'];
- // $scope.getPassword =  response.password;
-// var myJSON = JSON.stringify(response.data);
- // username1 : response.username;
- // password1 :  response.password;
-   console.log("Review get  Opject: ", response, status);
-   console.log('$scope.loginData.username'+$scope.loginData.username+'$scope.loginData.password'+$scope.loginData.password +'data'+ myJSON.username);
-   console.log('response.username'+ u + 'response.password'+ p);
-    if ($scope.loginData.username == "1234" && $scope.loginData.password == "1234") {
+   $scope.showAlertFail = function() {
+     var alertPopup = $ionicPopup.alert({
+     title: 'Login Fail!',
+     template: 'Invalid Username and Password '
+     });
+  };
+  
+  $scope.showAlertSuccess = function() {
+     var alertPopup = $ionicPopup.alert({
+     title: 'Login Success!',
+     template: 'Welcome Back: "'+ response.data.firstname +"  "+"  "+ response.data.lastname+'"' 
+     });
+     $scope.modal.hide();
+  };
+  // var myjson = JSON.stringify(response.data);
+   // console.log("Review get  Opject: " + response.data + "1111111111111" + response.data);
+   // console.log('$scope.loginData.username'+$scope.loginData.username+'$scope.loginData.password'+$scope.loginData.password +'data'+ response.data);
+   // console.log('response.username'+ response.data.username + 'response.password'+ response.data.password);
+    if ($scope.loginData.username == response.data.username && $scope.loginData.password == response.data.password) {
     console.log('success');
-    // $scope.showAlertSuccess();
+   $scope.showAlertSuccess();
     $state.go('app.playlists');
     // $scope.showAlertSuccess();
     }else{
@@ -156,45 +164,30 @@ $http.get(test).then( function(response) {
   };
 
 
-   $scope.showAlertFail = function() {
-     var alertPopup = $ionicPopup.alert({
-     title: 'Login Fail!',
-     template: 'Invalid Username and Password '
-     });
-  };
+  //  $scope.showAlertFail = function() {
+  //    var alertPopup = $ionicPopup.alert({
+  //    title: 'Login Fail!',
+  //    template: 'Invalid Username and Password '
+  //    });
+  // };
   
-  $scope.showAlertSuccess = function() {
-     var alertPopup = $ionicPopup.alert({
-     title: 'Login Success!',
-     template: 'Welcome Back: "'+ $scope.loginData.username +'"'
-     });
-     $scope.modal.hide();
-  };
+  // $scope.showAlertSuccess = function() {
+  //    var alertPopup = $ionicPopup.alert({
+  //    title: 'Login Success!',
+  //    template: 'Welcome Back: "'+ $scope.loginData.username +'"'
+  //    });
+  //    $scope.modal.hide();
+  // };
+
+
+
+
     // Simulate a login delay. Remove this and replace with your login
     // code if using a login system
   //   $timeout(function() {
   //     $scope.closeLogin();
   //   }, 1000);
   // };
-
-
-  // $scope.names = [
-  // {first: 'Panupong', last: 'Poolngam', src:'./img/img-p.jpg'}
-  // ];
-  // // TEST MENU Message
-  //   $scope.messages = [
-  //   {content:'Hello World', src:'./img/test.png', date: 'Thu 3/10/1993 07:26 PM', alt:'test', id: 1 },
-  //   {content:'Hello World', src:'./img/test.png', date: 'Thu 3/10/1993 07:26 PM', alt:'test', id: 2 },
-  //   {content:'Hello World', src:'./img/test.png', date: 'Thu 3/10/1993 07:26 PM', alt:'test', id: 3 },
-  //   {content:'Hello World', src:'./img/test.png', date: 'Thu 3/10/1993 07:26 PM', alt:'test', id: 4 },
-  //   {content:'Hello World', src:'./img/test.png', date: 'Thu 3/10/1993 07:26 PM', alt:'test', id: 5 },
-  //   {content:'Hello World', src:'./img/test.png', date: 'Thu 3/10/1993 07:26 PM', alt:'test', id: 6 },
-  //   {content:'Hello World', src:'./img/test.png', date: 'Thu 3/10/1993 07:26 PM', alt:'test', id: 7 },
-  //   {content:'Hello World', src:'./img/test.png', date: 'Thu 3/10/1993 07:26 PM', alt:'test', id: 8 },
-  //   {content:'Hello World', src:'./img/test.png', date: 'Thu 3/10/1993 07:26 PM', alt:'test', id: 9 },
-  //   {content:'Hello World', src:'./img/test.png', date: 'Thu 3/10/1993 07:26 PM', alt:'test', id: 10 },
-  //   {content:'Hello World', src:'./img/test.png', date: 'Thu 3/10/1993 07:26 PM', alt:'test', id: 11 }
-  // ];
 
 
   }
@@ -256,7 +249,9 @@ faculty: '1',
 year: '2016'
 }
 ];
-
+  // $ionicHistory.nextViewOptions({
+  //   disableBack: true
+  // });
 
     $scope.images = [
     { src:'./img/s1.png', alt:'s1', id: 1 },
@@ -424,7 +419,12 @@ $http.get(urlNewsCnn).success( function(response) {
 }
 )
 
-.controller('RegisterCtrl', function($scope, $http) {
+.controller('RegisterCtrl', function($scope, $http, $state, $ionicHistory) {
+
+  $ionicHistory.nextViewOptions({
+    disableBack: true
+  });
+
 
 $scope.addUsers = function(){
 var urlNewsCnn = "http://localhost:3000/postUsers";
@@ -436,6 +436,8 @@ $http.post(urlNewsCnn,{
 
 }).success( function(response) {
   console.log('OK');
+  $state.go('app.playlists');
+  sweetalert("Sign Success");
 });
 };
 
