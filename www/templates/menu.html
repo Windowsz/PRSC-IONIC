@@ -20,9 +20,9 @@
     <ion-header-bar class="bar-profile">
     
       <!-- <h1 class="title">Menu</h1> -->
-      <div class="profile" ng-repeat="name in names">
+      <div class="profile" >
         <img class="profile-picture" src="{{name.src}}" />
-        <h3 class="name"><span class="text-upper text-light">{{name.first}} {{name.last}}</span></h3>
+        <h3 class="name"><span class="text-upper text-light"><span ng-bind="Users.firstname"></span>  <span ng-bind="Users.firstname"></span></span></h3>
     </div>
     </ion-header-bar>
     <ion-content>

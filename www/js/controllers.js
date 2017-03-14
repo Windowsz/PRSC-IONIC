@@ -1,14 +1,16 @@
 angular.module('starter.controllers', ['ngCordova', 'ngCordovaOauth'])
 
 .controller('AppCtrl', function($scope, $ionicModal, $timeout, $state, $ionicPopup, $ionicSlideBoxDelegate, $ionicHistory, $http) {
-
+// $scope.profiles = window.localStorage.getItem("profile");
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
   // To listen for when this page is active (for example, to refresh data),
   // listen for the $ionicView.enter event:
   //$scope.$on('$ionicView.enter', function(e) {
   //});
-
+var response=angular.fromJson(window.localStorage.getItem("profile"));
+    $scope.Users = response;
+    console.log($scope.Users);
 //   // Form data for the login modal
 //   $scope.loginData = {};
 
@@ -72,43 +74,8 @@ angular.module('starter.controllers', ['ngCordova', 'ngCordovaOauth'])
 // });
 
 
-$scope.doLogin = function() {
-    // console.log('Doing login', $scope.loginData);
-    // var request = $http({
-    //             method: "post",
-    //             url: "http://localhost:3000/postUsers",
-    //             data: {
-    //                 username: $scope.loginData.username,
-    //                 password: $scope.loginData.password
-    //             },
-    //             headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
-    //         });
-    //         request.success(function (data) {
-    //             $scope.message = "Console : "+data+"OK";
-    //     if(data=="false"){
-    //       $scope.showAlertFail(); 
-    //     }else{
-    //       $scope.showAlertSuccess();
-    //     }
-    //      });
+$scope.doLogin = function(username) {
 
-
-//     var test = "http://localhost:3000/g/"+$scope.loginData.username;
-// $http.get(test).success( function(response) {
-//   // console.log('OK');
-//  var  username =  response.username;
-//  var  password =  response.password;
-//    console.log("Review get  Opject: ", response, status);
-
-
-//             if ($scope.loginData.username == 'admin' && $scope.loginData.password == password) {
-//     console.log('success');
-//     $scope.showAlertSuccess();
-//     }else{
-//     console.log('invalid');
-//     $scope.showAlertFail();
-//     }
-//   };
   $ionicHistory.nextViewOptions({
     disableBack: true
   });
@@ -125,8 +92,15 @@ $http.get(test).then( function(response) {
      template: 'Invalid Username and Password '
      });
   };
-  
+  window.localStorage.setItem("profile", JSON.stringify(response.data));
+    // $scope.login = function(username) {
+
+    //   window.localStorage.setItem("profile", JSON.stringify(response.data));
+    // };
+
+
   $scope.showAlertSuccess = function() {
+
      var alertPopup = $ionicPopup.alert({
      title: 'Login Success!',
      template: 'Welcome Back: "'+ response.data.firstname +"  "+"  "+ response.data.lastname+'"' 
@@ -139,8 +113,12 @@ $http.get(test).then( function(response) {
    // console.log('response.username'+ response.data.username + 'response.password'+ response.data.password);
     if ($scope.loginData.username == response.data.username && $scope.loginData.password == response.data.password) {
     console.log('success');
+    console.log(response.data);
+    // console.log($scope.login());
+    console.log(window.localStorage.getItem("profile"));
    $scope.showAlertSuccess();
-    $state.go('app.playlists');
+    $state.go('app.playlists', {}, {reload: true});
+    window.location.reload(true);
     // $scope.showAlertSuccess();
     }else{
     console.log('invalid');
@@ -151,36 +129,7 @@ $http.get(test).then( function(response) {
 
 });
 
-
-    //         if ($scope.loginData.username == 'admin' && $scope.loginData.password == 'admin') {
-    // console.log('success');
-    // $scope.showAlertSuccess();
-    // }else{
-    // console.log('invalid');
-    // $scope.showAlertFail();
-    // }
-
-
   };
-
-
-  //  $scope.showAlertFail = function() {
-  //    var alertPopup = $ionicPopup.alert({
-  //    title: 'Login Fail!',
-  //    template: 'Invalid Username and Password '
-  //    });
-  // };
-  
-  // $scope.showAlertSuccess = function() {
-  //    var alertPopup = $ionicPopup.alert({
-  //    title: 'Login Success!',
-  //    template: 'Welcome Back: "'+ $scope.loginData.username +'"'
-  //    });
-  //    $scope.modal.hide();
-  // };
-
-
-
 
     // Simulate a login delay. Remove this and replace with your login
     // code if using a login system
@@ -193,7 +142,24 @@ $http.get(test).then( function(response) {
   }
 )
 
-.controller('SettingCtrl', function($scope, $ionicPopup, $timeout, $http) {
+.controller('SettingCtrl', function($scope, $ionicPopup, $timeout, $http, $state, $ionicHistory) {
+  $ionicHistory.nextViewOptions({
+    disableBack: true
+  });
+
+
+$scope.Logout = function() {
+window.localStorage.removeItem("profile");
+alert("Bye");
+ // $state.reload();
+$state.go('app.playlists', {}, {reload: true});
+window.location.reload(true);
+};
+
+var response=angular.fromJson(window.localStorage.getItem("profile"));
+    $scope.Users = response;
+
+
 
 var urlShowJson = "http://localhost:3000/showJson";
 $http.get(urlShowJson).success( function(data) {
@@ -241,7 +207,7 @@ $scope.showPopup = function() {
 
 
 .controller('PlaylistsCtrl', function($scope,  $ionicPopover, $http) {
-
+console.log(window.localStorage.getItem("profile"));
 $scope.User = [{
 userId: '1',
 userType : '1',
@@ -437,34 +403,9 @@ $http.post(urlNewsCnn,{
 }).success( function(response) {
   console.log('OK');
   $state.go('app.playlists');
-  sweetalert("Sign Success");
 });
 };
-
-// var test = "http://localhost:3000/g/";
-// $http.get(test).success( function(response) {
-//   // console.log('OK');
-//    $scope.username =  response.username;
-//    console.log("Review get  Opject: ", response, status);
-// });
-
-
 })
-
-
-// .controller('LoginCtrl', function($scope, $http) {
-//   // Hiden Side menu and etc.
-// $rootScope.extras = false;
-
-
-
-
-
-
-
-
-// })
-
 
 .controller('PlaylistCtrl', 'RegisterCtrl', 'NewsCnnCtrl', 'ContactCtrl', 'MessagesCtrl', 'SettingCtrl', 'NewsCtrl', 'LibsCtrl', 'ItsCtrl', function($scope, $stateParams) {
 });

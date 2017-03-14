@@ -1,5 +1,5 @@
 <ion-view view-title="setting">
-  <ion-content>
+  <ion-content  ng-controller="SettingCtrl">
  
  <div class="list" >
   <label class="item item-input item-select">
@@ -12,16 +12,17 @@
     </select>
   </label>
 </div>
-<div class="list" ng-repeat="name in names">
+<div class="list"  >
   <div class="item item-divider">
     ข้อมูลผู้ใช้
+  <a class="item" >
+   <span class="ct-h"> Username </span> : <span ng-bind="Users.username"></span>
+  </a>
+  <a class="item">
+   <span class="ct-h"> Name </span> : <span ng-bind="Users.firstname"></span> <span ng-bind="Users.firstname"></span> 
+  </a>
   </div>
-  <a class="item">
-   <span class="ct-h"> Username </span> : {{name.username}}
-  </a>
-  <a class="item">
-   <span class="ct-h"> Name </span> : {{name.first}} {{name.last}} 
-  </a>
+  </div>
 <div class="button-bar">
 <!--   <a class="button button-calm">ReName</a>
   <a class="button button-balanced">Chang Photo</a> -->
@@ -30,7 +31,7 @@
 </div>
 </div>
 <center>
-<button class="button button-red">
+<button class="button button-red" ng-click="Logout()">
   log out
 </button>
 </center>
