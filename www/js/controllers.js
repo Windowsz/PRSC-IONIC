@@ -8,25 +8,30 @@ angular.module('starter.controllers', ['ngCordova', 'ngCordovaOauth'])
   // listen for the $ionicView.enter event:
   //$scope.$on('$ionicView.enter', function(e) {
   //});
+
+// var $scope.myVar = [];
+// if($scope.myVar != true ){
+//   $scope.myVar = true;
+// }
+// else{
+// $scope.myVar = false;
+// }
+var roles = angular.fromJson(window.localStorage.getItem("role"));
+$scope.myVar = roles;
+
+console.log($scope.myVar);
 var response=angular.fromJson(window.localStorage.getItem("profile"));
     $scope.Users = response;
     console.log($scope.Users);
-//   // Form data for the login modal
-//   $scope.loginData = {};
 
-//   // Create the login modal that we will use later
-//   $ionicModal.fromTemplateUrl('templates/login.html', {
-//     scope: $scope
-//   }).then(function(modal) {
-//     $scope.modal = modal;
-//   });
-// $scope.googleLogin = function() {
-//         $cordovaOauth.google("app-id", ["email", "profile"]).then(function(result) {
+    // if($scope.myVar == true){
 
-//         }, function(error) {
+    // }else{
+    //   $scope.myVar = true;
+    //   console.log('11111111');
+    // }
 
-//         });
-//     }
+
 ///////////////////////////////////////////////////
 // Form data for the login modal
   $scope.loginData = {};
@@ -47,42 +52,12 @@ var response=angular.fromJson(window.localStorage.getItem("profile"));
   $scope.login = function() {
     $scope.modal.show();
   };
-  ///////////////////////////////////////////////////////
-  // // Triggered in the login modal to close it
-  // $scope.closeLogin = function() {
-  //   $scope.modal.hide();
-  // };
-
-  // // Open the login modal
-  // $scope.login = function() {
-  //   $scope.modal.show();
-  //   // $rootScope.extras = false;
-  // };
-
-  // Perform the login action when the user submits the login form
-  // $scope.doLogin = function() {
-  //   console.log('Doing login', $scope.loginData);
-
-// $http.post(urlNewsCnn,{
-//     'username':$scope.username, 'password':$scope.password,
-//     'firstname':$scope.firstname, 'lastname':$scope.lastname,
-//     'faculty':$scope.faculty, 'year':$scope.year,
-//     'userType':$scope.userType
-
-// }).success( function(response) {
-//   console.log('OK');
-// });
-
 
 $scope.doLogin = function(username) {
 
   $ionicHistory.nextViewOptions({
     disableBack: true
   });
-
-
-
-
 
     var test = "http://localhost:3000/g/" + $scope.loginData.username;
 $http.get(test).then( function(response) {
@@ -92,6 +67,7 @@ $http.get(test).then( function(response) {
      template: 'Invalid Username and Password '
      });
   };
+  window.localStorage.setItem("role", false);
   window.localStorage.setItem("profile", JSON.stringify(response.data));
     // $scope.login = function(username) {
 
@@ -107,13 +83,12 @@ $http.get(test).then( function(response) {
      });
      $scope.modal.hide();
   };
-  // var myjson = JSON.stringify(response.data);
-   // console.log("Review get  Opject: " + response.data + "1111111111111" + response.data);
-   // console.log('$scope.loginData.username'+$scope.loginData.username+'$scope.loginData.password'+$scope.loginData.password +'data'+ response.data);
-   // console.log('response.username'+ response.data.username + 'response.password'+ response.data.password);
     if ($scope.loginData.username == response.data.username && $scope.loginData.password == response.data.password) {
     console.log('success');
     console.log(response.data);
+    $scope.myVar = response.data.ckLogin;
+    $scope.myVar = true;
+
     // console.log($scope.login());
     console.log(window.localStorage.getItem("profile"));
    $scope.showAlertSuccess();
@@ -151,6 +126,9 @@ $http.get(test).then( function(response) {
 $scope.Logout = function() {
 window.localStorage.removeItem("profile");
 alert("Bye");
+$scope.data = {};
+
+window.localStorage.setItem("role", true);
  // $state.reload();
 $state.go('app.playlists', {}, {reload: true});
 window.location.reload(true);
@@ -208,6 +186,7 @@ $scope.showPopup = function() {
 
 .controller('PlaylistsCtrl', function($scope,  $ionicPopover, $http) {
 console.log(window.localStorage.getItem("profile"));
+
 $scope.User = [{
 userId: '1',
 userType : '1',

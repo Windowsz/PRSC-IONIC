@@ -22,11 +22,12 @@
       <!-- <h1 class="title">Menu</h1> -->
       <div class="profile" >
         <img class="profile-picture" src="{{name.src}}" />
-        <h3 class="name"><span class="text-upper text-light"><span ng-bind="Users.firstname"></span>  <span ng-bind="Users.firstname"></span></span></h3>
+        <h3 class="name"><span class="text-upper text-light"><span ng-bind="Users.firstname"></span> 
+         <span ng-bind="Users.firstname"></span></span></h3>
     </div>
     </ion-header-bar>
     <ion-content>
-      <ion-list >
+      <ion-list ng-model="myVar"   >
 
         <ion-item menu-close href="#/app/playlists" class="item item-icon-left">
         <!-- <i class="icon" src="./svg/house.png" ></i> -->
@@ -37,7 +38,7 @@
           Home
         </ion-item>
 
-        <ion-item menu-close href="#/app/login" class="item item-icon-left">
+        <ion-item menu-close href="#/app/login" class="item item-icon-left" ng-if="myVar">
         <!-- <i class="icon ion-android-unlock"></i> -->
         <i class="icon loginIcon"></i>
           Login

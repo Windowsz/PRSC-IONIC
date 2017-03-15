@@ -48,8 +48,8 @@
         <icon density="xxxhdpi" src="resources\android\icon\drawable-xxxhdpi-icon.png" />
     </platform>
     <icon src="resources\android\icon\drawable-xhdpi-icon.png" />
-    <plugin name="phonegap-plugin-push" spec="~1.8.4">
-        <variable name="SENDER_ID" value="662129943428" />
+    <plugin name="phonegap-plugin-push" spec="1.6.0">
+        <param name="SENDER_ID" value="662129943428" />
     </plugin>
 </widget>
   <!-- <name>LIB_KMITL</name>

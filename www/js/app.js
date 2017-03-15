@@ -23,45 +23,99 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova', 'ngCordo
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
     }
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+// var push = PushNotification.init({
+//            android: {
+//              senderID: "662129943428"//, //project token number (12 digit) from https://console.developers.google.com
+//              // forceShow: "true", //force show push notification when app is in foreground on Android only.
+//            },
+//            browser: {
+//              pushServiceURL: 'http://push.api.phonegap.com/v1/push'
+//            },
+//            ios: {
+//              /*senderID: "XXXXXXX",*/ //If using GCM for ios, project token number (12 digit) from https://console.developers.google.com
+//              /*gcmSandbox: 'true',*/ //If using GCM for ios
+//              alert: 'true',
+//              badge: 'true',
+//              sound: 'true',
+//            },
+//            windows: {}
+//          });
+
+//          PushNotification.hasPermission(function (permissionResult) {
+//            if (permissionResult.isEnabled) {
+//              $log.debug("has permission for push notification");
+
+//              /*Register device with GCM/APNs*/
+//              push.on('registration', function (data) {
+//                // data.registrationId
+//                $log.debug("data.registrationId: " + data.registrationId);          
+//              });
+
+//              push.on('notification', function (data) {
+//                // data.message,
+//                // data.title,
+//                // data.count,
+//                // data.sound,
+//                // data.image,
+//                // data.additionalData
+//                $log.debug(JSON.stringify(data));
+//              });
+
+//              push.on('error', function (e) {
+//                // e.message
+//                $log.debug("e.message: " + e.message);
+//                //alert(e.message);
+//              });
+//            }
+//          });
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
     /////////////////////////Delete $cordovaPush///////////////////////////
-//  ANDROID
- var androidConfig = {
-    "senderID": "662129943428",
-  };
-  // document.addEventListener("deviceready", function(){
-    $cordovaPush.register(androidConfig).then(function(result) {
-      // Success
-    }, function(err) {
-      // Error
-    })
-    $rootScope.$on('$cordovaPush:notificationReceived', function(event, notification) {
-      switch(notification.event) {
-        case 'registered':
-          if (notification.regid.length > 0 ) {
-            alert('registration ID = ' + notification.regid + 'message = ' + notification.message + ' msgCount = ' + notification.msgcnt);
-          }
-          break;
-        case 'message':
-          // this is the actual push notification. its format depends on the data model from the push server
-          alert('message = ' + notification.message + ' msgCount = ' + notification.msgcnt);
-          break;
+// //  ANDROID
+//  var androidConfig = {
+//     "senderID": "662129943428",
+//   };
+//   // document.addEventListener("deviceready", function(){
+//     $cordovaPush.register(androidConfig).then(function(result) {
+//       // Success
+//     }, function(err) {
+//       // Error
+//     })
+//     $rootScope.$on('$cordovaPush:notificationReceived', function(event, notification) {
+//       switch(notification.event) {
+//         case 'registered':
+//           if (notification.regid.length > 0 ) {
+//             alert('registration ID = ' + notification.regid + 'message = ' + notification.message + ' msgCount = ' + notification.msgcnt);
+//           }
+//           break;
+//         case 'message':
+//           // this is the actual push notification. its format depends on the data model from the push server
+//           alert('message = ' + notification.message + ' msgCount = ' + notification.msgcnt);
+//           break;
 
-        case 'error':
-          alert('GCM error = ' + notification.msg);
-          break;
+//         case 'error':
+//           alert('GCM error = ' + notification.msg);
+//           break;
 
-        default:
-          alert('An unknown GCM event has occurred');
-          break;
-      }
-    });
+//         default:
+//           alert('An unknown GCM event has occurred');
+//           break;
+//       }
+//     });
 
-    // WARNING: dangerous to unregister (results in loss of tokenID)
-    $cordovaPush.unregister(options).then(function(result) {
-      // Success!
-    }, function(err) {
-      // Error
-    });
+//     // WARNING: dangerous to unregister (results in loss of tokenID)
+//     $cordovaPush.unregister(options).then(function(result) {
+//       // Success!
+//     }, function(err) {
+//       // Error
+//     });
 ////////////////////////////////////////////////////
   });
 })
